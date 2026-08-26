@@ -2,56 +2,40 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  AnimatePresence,
-  motion,
-  useReducedMotion,
-  type Variants,
-} from 'motion/react';
-import { type ReactNode, useEffect, useId, useState } from 'react';
+import { useEffect, useId, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { FileText } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
-import { DEFAULT_LINKS, LandingNavItem } from '@/constants/defaultLinks';
 import { useScrolledPast } from '@/hooks/useScrolledPast';
+import { DEFAULT_LINKS, NavItem } from '@/constants/defaultLinks';
+import { ENTER_CONTAINER, ENTER_ITEM } from '@/constants/enterItem';
 
 import { Logo } from './Logo';
 import { GithubIcon } from './GithubIcon';
+import { ResumeLink } from './ResumeLink';
 
-export type LandingNavbarProps = {
-  logo?: ReactNode;
+export type NavbarProps = {
   brandLabel?: string;
-  links?: readonly LandingNavItem[];
+  links?: readonly NavItem[];
   proHref?: string;
   proLabel?: string;
   scrollThreshold?: number;
   className?: string;
 };
 
-const ENTER_CONTAINER: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      delayChildren: 0.12,
-      staggerChildren: 0.065,
-    },
-  },
-};
-
-const ENTER_ITEM: Variants = {
-  hidden: { opacity: 0, y: -10, filter: 'blur(6px)' },
-  visible: {
-    opacity: 1,
-    y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.42, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
 type NavLinksProps = {
   activeHref?: string;
   highlightId: string;
-  links: readonly LandingNavItem[];
+  links: readonly NavItem[];
 };
+
+const MOBILE_EXTERNAL_LINK_CLASSES = cn(
+  'group flex items-center justify-between rounded-[10px] px-3.5 py-3',
+  'font-mono text-[13px] font-medium tracking-[0.04em] text-white/70 uppercase',
+  'transition-colors hover:bg-white/6 hover:text-white',
+  'focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none',
+);
 
 function DesktopNavLinks({ activeHref, highlightId, links }: NavLinksProps) {
   const [hoveredHref, setHoveredHref] = useState<string | null>(null);
@@ -78,9 +62,12 @@ function DesktopNavLinks({ activeHref, highlightId, links }: NavLinksProps) {
               aria-current={active ? 'page' : undefined}
               className={cn(
                 'relative isolate block rounded-xl px-2.5 py-1.5',
-                'font-mono text-[13px] font-medium uppercase tracking-[0.04em]',
-                'text-white/70 transition-colors hover:text-white active:scale-[0.96]',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80',
+                'font-mono text-[13px] font-medium tracking-[0.04em] uppercase',
+                'transition-[color,transform] duration-200 active:scale-[0.96]',
+                'focus-visible:ring-primary/80 focus-visible:ring-2 focus-visible:outline-none',
+                highlighted
+                  ? 'text-violet-100'
+                  : 'text-white/70 hover:text-white',
               )}
               href={item.href}
               onFocus={() => setHoveredHref(item.href)}
@@ -89,14 +76,20 @@ function DesktopNavLinks({ activeHref, highlightId, links }: NavLinksProps) {
               {highlighted ? (
                 <motion.span
                   className={cn(
-                    'absolute inset-0 -z-10 rounded-xl border border-white/8',
-                    'bg-[rgba(18,15,23,0.45)] shadow-[0_2px_16px_rgba(0,0,0,0.2),inset_0_0.5px_0_rgba(255,255,255,0.06)]',
-                    'backdrop-blur-xl backdrop-saturate-[1.4]',
+                    'absolute inset-0 -z-10 rounded-xl',
+                    'border-primary/15 bg-primary/10 border',
+                    'shadow-[0_4px_22px_rgba(91,33,182,0.24),inset_0_1px_0_rgba(216,180,254,0.12)]',
+                    'backdrop-blur-xl backdrop-saturate-[1.45]',
                   )}
-                  layoutId={`landing-nav-highlight-${highlightId}`}
-                  transition={{ type: 'spring', stiffness: 520, damping: 42 }}
+                  layoutId={`nav-highlight-${highlightId}`}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 520,
+                    damping: 42,
+                  }}
                 />
               ) : null}
+
               {item.label}
             </Link>
           </motion.div>
@@ -111,23 +104,25 @@ function MobileMenu({
   githubUrl,
   links,
   onNavigate,
+  resumeUrl,
 }: {
   activeHref?: string;
   githubUrl: string;
-  links: readonly LandingNavItem[];
+  links: readonly NavItem[];
   onNavigate: () => void;
+  resumeUrl: string;
 }) {
   return (
     <motion.nav
       animate={{ opacity: 1, y: 0, scale: 1 }}
       aria-label="Mobile navigation"
       className={cn(
-        'absolute right-1 top-[calc(100%+0.5rem)] z-20 flex min-w-52 flex-col gap-0.5 overflow-hidden rounded-[14px]',
+        'absolute top-[calc(100%+0.5rem)] right-1 z-20 flex min-w-52 flex-col gap-0.5 overflow-hidden rounded-[14px]',
         'border border-white/6 bg-[rgba(18,15,23,0.88)] p-2 shadow-[0_8px_32px_rgba(0,0,0,0.4)]',
         'backdrop-blur-[32px] backdrop-saturate-[1.3] md:hidden',
       )}
       exit={{ opacity: 0, y: -6, scale: 0.985 }}
-      id="landing-mobile-navigation"
+      id="mobile-navigation"
       initial={{ opacity: 0, y: -6, scale: 0.985 }}
       transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
     >
@@ -136,8 +131,8 @@ function MobileMenu({
           aria-current={item.href === activeHref ? 'page' : undefined}
           className={cn(
             'group flex items-center justify-between rounded-[10px] px-3.5 py-3',
-            'font-mono text-[13px] font-medium uppercase tracking-[0.04em] text-white/70',
-            'transition-colors hover:bg-white/6 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80',
+            'font-mono text-[13px] font-medium tracking-[0.04em] text-white/70 uppercase',
+            'transition-colors hover:bg-white/6 hover:text-white focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none',
           )}
           href={item.href}
           key={item.href}
@@ -151,7 +146,22 @@ function MobileMenu({
       ))}
 
       <a
-        className="flex items-center justify-between rounded-[10px] px-3.5 py-3 font-mono text-[13px] font-medium uppercase tracking-[0.04em] text-white/70 transition-colors hover:bg-white/6 hover:text-white"
+        className={MOBILE_EXTERNAL_LINK_CLASSES}
+        href={resumeUrl}
+        onClick={onNavigate}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span className="inline-flex items-center gap-2">
+          <FileText aria-hidden="true" className="text-primary size-3.5" />
+          Resume
+        </span>
+
+        <span className="sr-only">PDF, opens in a new tab</span>
+      </a>
+
+      <a
+        className={MOBILE_EXTERNAL_LINK_CLASSES}
         href={githubUrl}
         onClick={onNavigate}
         rel="noreferrer"
@@ -166,13 +176,12 @@ function MobileMenu({
   );
 }
 
-export default function LandingNavbar({
-  logo,
+export default function Navbar({
   brandLabel = 'Home',
   links = DEFAULT_LINKS,
   scrollThreshold = 50,
   className,
-}: LandingNavbarProps) {
+}: NavbarProps) {
   const pathname = usePathname();
   const highlightId = useId();
   const reduceMotion = useReducedMotion();
@@ -182,8 +191,6 @@ export default function LandingNavbar({
   const activeHref = links.find(({ href, match = href }) =>
     pathname.startsWith(match),
   )?.href;
-
-  useEffect(() => setMenuOpen(false), [pathname]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -205,7 +212,7 @@ export default function LandingNavbar({
   return (
     <header
       className={cn(
-        'pointer-events-none fixed inset-x-0 top-5 z-1500 flex flex-col items-center px-4 font-mono md:px-6',
+        'pointer-events-none fixed inset-x-0 top-5 z-1500 flex flex-col items-center px-5 font-mono md:px-6 lg:px-10',
         className,
       )}
     >
@@ -215,8 +222,8 @@ export default function LandingNavbar({
           'pointer-events-auto relative flex h-14 w-full items-center justify-between rounded-2xl border',
           'transition-[max-width,background-color,border-color,padding,box-shadow,backdrop-filter] duration-500 ease-out',
           scrolled
-            ? 'max-w-319 border-white/4 bg-[rgba(18,15,23,0.45)] py-0 pl-4 pr-1 shadow-[0_8px_32px_rgba(0,0,0,0.28),inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl backdrop-saturate-[1.4] md:pl-5 md:pr-2'
-            : 'max-w-[1680px] border-transparent bg-transparent py-0 pl-1 pr-1 md:pl-5 md:pr-2',
+            ? 'max-w-7xl border-white/4 bg-[rgba(18,15,23,0.45)] py-0 pr-1 pl-4 shadow-[0_8px_32px_rgba(0,0,0,0.28),inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl backdrop-saturate-[1.4] md:pr-2 md:pl-5'
+            : 'max-w-[1680px] border-transparent bg-transparent py-0 pr-1 pl-1 md:pr-2 md:pl-5',
         )}
         initial={reduceMotion ? false : 'hidden'}
         variants={ENTER_CONTAINER}
@@ -225,16 +232,17 @@ export default function LandingNavbar({
           <motion.div variants={ENTER_ITEM}>
             <Link
               aria-label={brandLabel}
-              className="flex items-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80"
+              className="flex items-center rounded-lg focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none"
               href="/"
+              onClick={() => setMenuOpen(false)}
             >
-              {logo ?? <Logo />}
+              <Logo />
             </Link>
           </motion.div>
 
           <motion.span
             aria-hidden="true"
-            className="mx-2 hidden select-none text-lg font-light text-white md:ml-4.5 md:mr-2 md:block"
+            className="mx-2 hidden text-lg font-light text-white select-none md:mr-2 md:ml-4.5 md:block"
             variants={ENTER_ITEM}
           >
             /
@@ -252,25 +260,28 @@ export default function LandingNavbar({
             className={cn(
               'hidden h-9 items-center gap-1.5 rounded-[10px] border border-transparent px-3 md:flex',
               'bg-white/[0.035] font-mono text-[13px] font-medium text-white/80 shadow-[inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl',
-              'transition-[background-color,transform] hover:bg-white/[0.07] hover:text-white active:scale-[0.97]',
-              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80',
+              'transition-colors duration-200 hover:bg-white/[0.07] hover:text-white',
+              'focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none',
             )}
             href="https://github.com/MohammadROmar/"
             rel="noopener noreferrer"
             target="_blank"
             variants={ENTER_ITEM}
+            whileTap={{ scale: 0.97 }}
           >
             <GithubIcon className="h-4 w-4" />
           </motion.a>
 
+          <ResumeLink />
+
           <motion.button
-            aria-controls="landing-mobile-navigation"
+            aria-controls="mobile-navigation"
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             className={cn(
               'flex h-9 w-9 flex-col items-center justify-center gap-1 rounded-[10px] border border-transparent p-2.25 md:hidden',
               'bg-white/[0.035] shadow-[inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl',
-              'transition-colors hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/80',
+              'transition-colors hover:bg-white/[0.07] focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none',
             )}
             onClick={() => setMenuOpen((open) => !open)}
             type="button"
@@ -304,6 +315,7 @@ export default function LandingNavbar({
               githubUrl="https://github.com/MohammadROmar/"
               links={links}
               onNavigate={() => setMenuOpen(false)}
+              resumeUrl="/resume/Mohammad-Omar-Resume.pdf"
             />
           ) : null}
         </AnimatePresence>

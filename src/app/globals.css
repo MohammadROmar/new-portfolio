@@ -1,26 +1,74 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #09070d;
+  --color-background-soft: #0d0a18;
+  --color-surface: #110d18;
+  --color-surface-raised: #181120;
+  --color-surface-hover: #21172c;
+
+  --color-foreground: #f5f1ff;
+  --color-foreground-soft: #ddd6e8;
+  --color-muted-foreground: #a9a0b7;
+  --color-subtle-foreground: #756d81;
+
+  --font-title: var(--font-space-grotesk);
+  --font-montserrat: var(--font-montserrat);
+
+  --color-primary: #a78bfa;
+  --color-primary-hover: #b9a4fc;
+  --color-primary-active: #9272e6;
+  --color-primary-foreground: #09070d;
+
+  --color-primary-soft: #eadcff;
+  --color-primary-mid: #d8b4fe;
+
+  --color-accent: #d9f99d;
+  --color-accent-foreground: #172008;
+
+  --color-border: #2a2038;
+  --color-border-hover: #44325b;
+  --color-border-primary: #7846c7;
+  --color-focus: #a78bfa;
+
+  --color-secondary: #1b1424;
+  --color-secondary-hover: #261b33;
+  --color-secondary-foreground: #f5f1ff;
+
+  --color-hero-start: #09070d;
+  --color-hero-middle: #15102a;
+  --color-hero-end: #21123a;
+
+  --color-gradient-1: #312e81;
+  --color-gradient-2: #4044b5;
+  --color-gradient-3: #5b21b6;
+  --color-gradient-4: #7846c7;
+  --color-gradient-5: #9d6cd8;
+  --color-gradient-6: #8673cf;
+
+  --color-success: #86efac;
+  --color-warning: #fcd34d;
+  --color-danger: #f87171;
+
+  --shadow-card:
+    0 18px 50px -24px rgb(5 3 8 / 80%), 0 1px 0 rgb(255 255 255 / 4%) inset;
+
+  --shadow-glow: 0 0 45px -12px rgb(120 70 199 / 65%);
+
+  --shadow-glow-strong: 0 0 60px -10px rgb(157 108 216 / 75%);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-background);
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground font-montserrat antialiased;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
 }
