@@ -4,7 +4,6 @@ import {
   PlaneGeometry,
   Scene,
   ShaderMaterial,
-  Vector2,
   Vector3,
   WebGLRenderer,
 } from 'three';
@@ -13,7 +12,6 @@ import { MAX_GRADIENT_STOPS } from './constants';
 import type { FloatingLinesConfig } from './runtime.types';
 import { fragmentShader, vertexShader } from './shaders';
 
-const INITIAL_MOUSE_POSITION = -1_000;
 const MAX_PIXEL_RATIO = 2;
 const MAX_FRAME_DELTA_SECONDS = 0.1;
 
@@ -32,16 +30,6 @@ type FloatingLinesUniforms = {
   topLineDistance: UniformValue<number>;
   middleLineDistance: UniformValue<number>;
   bottomLineDistance: UniformValue<number>;
-  topWavePosition: UniformValue<Vector3>;
-  middleWavePosition: UniformValue<Vector3>;
-  bottomWavePosition: UniformValue<Vector3>;
-  iMouse: UniformValue<Vector2>;
-  interactive: UniformValue<boolean>;
-  bendRadius: UniformValue<number>;
-  bendStrength: UniformValue<number>;
-  bendInfluence: UniformValue<number>;
-  parallax: UniformValue<boolean>;
-  parallaxOffset: UniformValue<Vector2>;
   lineGradient: UniformValue<Vector3[]>;
   lineGradientCount: UniformValue<number>;
 };
@@ -87,18 +75,6 @@ function createUniforms(config: FloatingLinesConfig): FloatingLinesUniforms {
     topLineDistance: { value: 0.01 },
     middleLineDistance: { value: 0.01 },
     bottomLineDistance: { value: 0.01 },
-    topWavePosition: { value: new Vector3() },
-    middleWavePosition: { value: new Vector3() },
-    bottomWavePosition: { value: new Vector3() },
-    iMouse: {
-      value: new Vector2(INITIAL_MOUSE_POSITION, INITIAL_MOUSE_POSITION),
-    },
-    interactive: { value: false },
-    bendRadius: { value: 5 },
-    bendStrength: { value: -0.5 },
-    bendInfluence: { value: 0 },
-    parallax: { value: false },
-    parallaxOffset: { value: new Vector2() },
     lineGradient: {
       value: Array.from(
         { length: MAX_GRADIENT_STOPS },
@@ -126,13 +102,6 @@ function updateUniforms(
   uniforms.topLineDistance.value = config.topLineDistance;
   uniforms.middleLineDistance.value = config.middleLineDistance;
   uniforms.bottomLineDistance.value = config.bottomLineDistance;
-  uniforms.topWavePosition.value.set(...config.topWavePosition);
-  uniforms.middleWavePosition.value.set(...config.middleWavePosition);
-  uniforms.bottomWavePosition.value.set(...config.bottomWavePosition);
-  uniforms.interactive.value = config.interactive;
-  uniforms.bendRadius.value = config.bendRadius;
-  uniforms.bendStrength.value = config.bendStrength;
-  uniforms.parallax.value = config.parallax;
   uniforms.lineGradientCount.value = config.gradientStops.length;
 
   config.gradientStops.forEach((hex, index) => {
@@ -144,23 +113,12 @@ export function createFloatingLinesRuntime(
   container: HTMLDivElement,
   initialConfig: FloatingLinesConfig,
 ): FloatingLinesRuntime {
-  let config = initialConfig;
   let active = true;
   let isIntersecting = true;
   let isDocumentVisible = !document.hidden;
   let animationFrame: number | null = null;
   let lastFrameTime: number | null = null;
   let elapsedTime = 0;
-
-  const targetMouse = new Vector2(
-    INITIAL_MOUSE_POSITION,
-    INITIAL_MOUSE_POSITION,
-  );
-  const currentMouse = targetMouse.clone();
-  let targetInfluence = 0;
-  let currentInfluence = 0;
-  const targetParallax = new Vector2();
-  const currentParallax = new Vector2();
 
   const scene = new Scene();
   const camera = new OrthographicCamera(-1, 1, 1, -1, 0, 1);
@@ -178,7 +136,7 @@ export function createFloatingLinesRuntime(
   renderer.domElement.style.height = '100%';
   container.appendChild(renderer.domElement);
 
-  const uniforms = createUniforms(config);
+  const uniforms = createUniforms(initialConfig);
   const material = new ShaderMaterial({
     uniforms,
     vertexShader,
@@ -203,8 +161,7 @@ export function createFloatingLinesRuntime(
     );
   };
 
-  const shouldRenderContinuously = () =>
-    active && isIntersecting && isDocumentVisible;
+  const shouldAnimate = () => active && isIntersecting && isDocumentVisible;
 
   const stopAnimation = () => {
     if (animationFrame !== null) {
@@ -216,78 +173,30 @@ export function createFloatingLinesRuntime(
 
   const renderFrame = (timestamp: number) => {
     animationFrame = null;
-    if (!shouldRenderContinuously()) return;
+    if (!shouldAnimate()) return;
 
     if (lastFrameTime !== null) {
-      const delta = Math.min(
+      elapsedTime += Math.min(
         (timestamp - lastFrameTime) / 1_000,
         MAX_FRAME_DELTA_SECONDS,
       );
-      elapsedTime += delta;
     }
+
     lastFrameTime = timestamp;
     uniforms.iTime.value = elapsedTime;
-
-    if (config.interactive) {
-      currentMouse.lerp(targetMouse, config.mouseDamping);
-      uniforms.iMouse.value.copy(currentMouse);
-
-      currentInfluence +=
-        (targetInfluence - currentInfluence) * config.mouseDamping;
-      uniforms.bendInfluence.value = currentInfluence;
-    }
-
-    if (config.parallax) {
-      currentParallax.lerp(targetParallax, config.mouseDamping);
-      uniforms.parallaxOffset.value.copy(currentParallax);
-    }
-
     render();
     animationFrame = requestAnimationFrame(renderFrame);
   };
 
   const startAnimation = () => {
-    if (!shouldRenderContinuously() || animationFrame !== null) return;
+    if (!shouldAnimate() || animationFrame !== null) return;
     lastFrameTime = null;
     animationFrame = requestAnimationFrame(renderFrame);
   };
 
   const updateAnimationState = () => {
-    if (shouldRenderContinuously()) {
-      startAnimation();
-    } else {
-      stopAnimation();
-    }
-  };
-
-  const handlePointerMove = (event: PointerEvent) => {
-    if (!config.interactive && !config.parallax) return;
-
-    const rect = renderer.domElement.getBoundingClientRect();
-    if (rect.width <= 0 || rect.height <= 0) return;
-
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-
-    if (config.interactive) {
-      const pixelRatio = renderer.getPixelRatio();
-      targetMouse.set(x * pixelRatio, (rect.height - y) * pixelRatio);
-      targetInfluence = 1;
-    }
-
-    if (config.parallax) {
-      const normalizedX = (x - rect.width / 2) / rect.width;
-      const normalizedY = -(y - rect.height / 2) / rect.height;
-      targetParallax.set(
-        normalizedX * config.parallaxStrength,
-        normalizedY * config.parallaxStrength,
-      );
-    }
-  };
-
-  const handlePointerLeave = () => {
-    targetInfluence = 0;
-    targetParallax.set(0, 0);
+    if (shouldAnimate()) startAnimation();
+    else stopAnimation();
   };
 
   const handleVisibilityChange = () => {
@@ -298,7 +207,7 @@ export function createFloatingLinesRuntime(
   const resizeObserver = new ResizeObserver(() => {
     if (!active) return;
     resize();
-    if (!shouldRenderContinuously()) render();
+    if (!shouldAnimate()) render();
   });
   resizeObserver.observe(container);
 
@@ -309,12 +218,6 @@ export function createFloatingLinesRuntime(
   });
   intersectionObserver.observe(container);
 
-  renderer.domElement.addEventListener('pointermove', handlePointerMove, {
-    passive: true,
-  });
-  renderer.domElement.addEventListener('pointerleave', handlePointerLeave, {
-    passive: true,
-  });
   document.addEventListener('visibilitychange', handleVisibilityChange);
 
   resize();
@@ -322,15 +225,15 @@ export function createFloatingLinesRuntime(
   startAnimation();
 
   return {
-    update(nextConfig) {
+    update(config) {
       if (!active) return;
-      config = nextConfig;
       updateUniforms(uniforms, config);
       if (isIntersecting && isDocumentVisible) render();
     },
 
     destroy() {
       if (!active) return;
+
       active = false;
       stopAnimation();
       resizeObserver.disconnect();
@@ -338,14 +241,6 @@ export function createFloatingLinesRuntime(
       document.removeEventListener(
         'visibilitychange',
         handleVisibilityChange,
-      );
-      renderer.domElement.removeEventListener(
-        'pointermove',
-        handlePointerMove,
-      );
-      renderer.domElement.removeEventListener(
-        'pointerleave',
-        handlePointerLeave,
       );
 
       scene.remove(mesh);

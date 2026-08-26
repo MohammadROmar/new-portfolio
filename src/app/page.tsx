@@ -1,5 +1,5 @@
-import FloatingLines from '@/components/FloatingLines';
 import HeroContent from '@/components/HeroContent';
+import FloatingLines from '@/components/FloatingLines';
 
 export default function LandingPage() {
   return (
@@ -10,9 +10,6 @@ export default function LandingPage() {
         enabledWaves={['top', 'middle', 'bottom']}
         lineCount={4}
         lineDistance={8}
-        bendRadius={8}
-        bendStrength={-2}
-        parallax
         animationSpeed={1}
         linesGradient={[
           '#201E54',
