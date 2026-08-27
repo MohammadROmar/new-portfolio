@@ -1,10 +1,11 @@
-import HeroContent from '@/components/HeroContent';
+import Hero from '@/components/Hero';
 import FloatingLines from '@/components/FloatingLines';
+import About from '@/components/About';
 
 export default function LandingPage() {
   return (
     <div className="after:from-background relative z-0 h-svh min-h-168 w-full after:absolute after:inset-x-0 after:bottom-0 after:h-50 after:bg-linear-to-t after:to-transparent">
-      <HeroContent />
+      <Hero />
 
       <FloatingLines
         enabledWaves={['top', 'middle', 'bottom']}
@@ -21,7 +22,7 @@ export default function LandingPage() {
         ]}
       />
 
-      <div className="h-screen" />
+      <About />
     </div>
   );
 }

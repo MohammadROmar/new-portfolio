@@ -58,7 +58,7 @@ const ACTION_VARIANTS: Variants = {
   },
 };
 
-export default function HeroContent() {
+export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
