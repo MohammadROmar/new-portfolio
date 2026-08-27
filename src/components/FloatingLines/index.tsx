@@ -3,7 +3,7 @@
 import { useFloatingLines } from './useFloatingLines';
 import type { FloatingLinesProps } from './types';
 
-export default function FloatingLines(props: FloatingLinesProps) {
+export function FloatingLines(props: FloatingLinesProps) {
   const containerRef = useFloatingLines(props);
 
   return (

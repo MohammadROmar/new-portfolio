@@ -1,11 +1,26 @@
-import Hero from '@/components/Hero';
-import FloatingLines from '@/components/FloatingLines';
-import About from '@/components/About';
+import { Hero as HeroContent } from '@/components/Hero';
+import { FloatingLines } from '@/components/FloatingLines';
+import { About } from '@/components/About';
+import { EngineeringApproach } from '@/components/EngineeringApproach';
 
 export default function LandingPage() {
   return (
-    <div className="after:from-background relative z-0 h-svh min-h-168 w-full after:absolute after:inset-x-0 after:bottom-0 after:h-50 after:bg-linear-to-t after:to-transparent">
+    <>
       <Hero />
+      <About />
+      <EngineeringApproach />
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <section
+      id="hero"
+      aria-labelledby="hero-heading"
+      className="after:from-background relative z-0 h-svh min-h-168 w-full after:absolute after:inset-x-0 after:bottom-0 after:h-50 after:bg-linear-to-t after:to-transparent"
+    >
+      <HeroContent />
 
       <FloatingLines
         enabledWaves={['top', 'middle', 'bottom']}
@@ -21,8 +36,6 @@ export default function LandingPage() {
           '#574B87',
         ]}
       />
-
-      <About />
-    </div>
+    </section>
   );
 }

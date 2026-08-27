@@ -12,6 +12,7 @@ import { DEFAULT_LINKS, NavItem } from '@/constants/defaultLinks';
 import { ENTER_CONTAINER, ENTER_ITEM } from '@/constants/enterItem';
 
 import { Logo } from './Logo';
+import { GlowLine } from './GlowLine';
 import { GithubIcon } from './GithubIcon';
 import { ResumeLink } from './ResumeLink';
 
@@ -175,7 +176,7 @@ function MobileMenu({
   );
 }
 
-export default function Navbar({
+export function Navbar({
   brandLabel = 'Home',
   links = DEFAULT_LINKS,
   scrollThreshold = 50,
@@ -222,11 +223,18 @@ export default function Navbar({
           'transition-[max-width,background-color,border-color,padding,box-shadow,backdrop-filter] duration-500 ease-out',
           scrolled
             ? 'max-w-7xl border-white/4 bg-[rgba(18,15,23,0.45)] py-0 pr-1 pl-4 shadow-[0_8px_32px_rgba(0,0,0,0.28),inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl backdrop-saturate-[1.4] md:pr-2 md:pl-5'
-            : 'max-w-[1680px] border-transparent bg-transparent py-0 pr-1 pl-1 md:pr-2 md:pl-5',
+            : 'max-w-[min(1680px,100%)] border-transparent bg-transparent py-0 pr-1 pl-1 md:pr-2 md:pl-5',
         )}
         initial={reduceMotion ? false : 'hidden'}
         variants={ENTER_CONTAINER}
       >
+        <GlowLine
+          className={cn(
+            'transition-opacity duration-500',
+            scrolled ? 'opacity-100' : 'opacity-0',
+          )}
+        />
+
         <div className="flex min-w-0 items-center">
           <motion.div variants={ENTER_ITEM}>
             <Link

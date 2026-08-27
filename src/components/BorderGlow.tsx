@@ -105,7 +105,7 @@ function calculateCursorAngle(
   return degrees < 0 ? degrees + 360 : degrees;
 }
 
-export default function BorderGlow({
+export function BorderGlow({
   children,
   className = '',
   edgeSensitivity = 30,
@@ -340,6 +340,7 @@ export default function BorderGlow({
   }, [syncVisualState]);
 
   const cardStyle = {
+    contain: 'layout',
     background: backgroundColor,
     borderRadius: `${borderRadius}px`,
     transform: 'translate3d(0, 0, 0.01px)',

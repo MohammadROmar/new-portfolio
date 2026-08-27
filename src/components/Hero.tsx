@@ -58,14 +58,11 @@ const ACTION_VARIANTS: Variants = {
   },
 };
 
-export default function Hero() {
+export function Hero() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section
-      aria-labelledby="hero-heading"
-      className="pointer-events-none absolute inset-0 isolate z-10 px-5 md:px-6 lg:px-10"
-    >
+    <div className="pointer-events-none absolute inset-0 isolate z-10 px-5 md:px-6 lg:px-10">
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_72%_at_22%_50%,rgba(9,7,13,0.88)_0%,rgba(9,7,13,0.64)_43%,rgba(9,7,13,0.16)_72%,transparent_100%)]"
@@ -110,7 +107,7 @@ export default function Hero() {
           <HeroActions />
         </motion.div>
       </div>
-    </section>
+    </div>
   );
 }
 

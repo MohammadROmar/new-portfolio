@@ -6,7 +6,8 @@ import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { cn } from '@/lib/cn';
 import { Section } from '@/components/Section';
 
-import BorderGlow from './BorderGlow';
+import { GlowLine } from './GlowLine';
+import { BorderGlow } from './BorderGlow';
 
 const CONTENT_VARIANTS: Variants = {
   hidden: {},
@@ -33,7 +34,7 @@ const ITEM_VARIANTS: Variants = {
   },
 };
 
-export default function About() {
+export function About() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -92,8 +93,10 @@ export default function About() {
           >
             <aside
               aria-label="Education and certification"
-              className="overflow-hidden rounded-[28px]"
+              className="relative overflow-hidden rounded-[28px]"
             >
+              <GlowLine />
+
               <Credential
                 icon={GraduationCap}
                 label="Education"
