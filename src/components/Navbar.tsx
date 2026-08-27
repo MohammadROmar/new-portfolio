@@ -15,6 +15,9 @@ import { Logo } from './Logo';
 import { GithubIcon } from './GithubIcon';
 import { ResumeLink } from './ResumeLink';
 
+const GITHUB_URL = 'https://github.com/MohammadROmar/';
+const RESUME_URL = '/resume/Mohammad-Omar-Resume.pdf';
+
 export type NavbarProps = {
   brandLabel?: string;
   links?: readonly NavItem[];
@@ -101,16 +104,12 @@ function DesktopNavLinks({ activeHref, highlightId, links }: NavLinksProps) {
 
 function MobileMenu({
   activeHref,
-  githubUrl,
   links,
   onNavigate,
-  resumeUrl,
 }: {
   activeHref?: string;
-  githubUrl: string;
   links: readonly NavItem[];
   onNavigate: () => void;
-  resumeUrl: string;
 }) {
   return (
     <motion.nav
@@ -147,7 +146,7 @@ function MobileMenu({
 
       <a
         className={MOBILE_EXTERNAL_LINK_CLASSES}
-        href={resumeUrl}
+        href={RESUME_URL}
         onClick={onNavigate}
         rel="noopener noreferrer"
         target="_blank"
@@ -162,9 +161,9 @@ function MobileMenu({
 
       <a
         className={MOBILE_EXTERNAL_LINK_CLASSES}
-        href={githubUrl}
+        href={GITHUB_URL}
         onClick={onNavigate}
-        rel="noreferrer"
+        rel="noopener noreferrer"
         target="_blank"
       >
         <span className="inline-flex items-center gap-2">
@@ -263,7 +262,7 @@ export default function Navbar({
               'transition-colors duration-200 hover:bg-white/[0.07] hover:text-white',
               'focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none',
             )}
-            href="https://github.com/MohammadROmar/"
+            href={GITHUB_URL}
             rel="noopener noreferrer"
             target="_blank"
             variants={ENTER_ITEM}
@@ -279,9 +278,10 @@ export default function Navbar({
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             className={cn(
-              'flex h-9 w-9 flex-col items-center justify-center gap-1 rounded-[10px] border border-transparent p-2.25 md:hidden',
-              'bg-white/[0.035] shadow-[inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl',
+              'flex size-9 flex-col items-center justify-center gap-1 rounded-[10px] border border-transparent p-2.25 md:hidden',
               'transition-colors hover:bg-white/[0.07] focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none',
+              !scrolled &&
+                'bg-white/[0.035] shadow-[inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl',
             )}
             onClick={() => setMenuOpen((open) => !open)}
             type="button"
@@ -312,10 +312,8 @@ export default function Navbar({
           {menuOpen ? (
             <MobileMenu
               activeHref={activeHref}
-              githubUrl="https://github.com/MohammadROmar/"
               links={links}
               onNavigate={() => setMenuOpen(false)}
-              resumeUrl="/resume/Mohammad-Omar-Resume.pdf"
             />
           ) : null}
         </AnimatePresence>
