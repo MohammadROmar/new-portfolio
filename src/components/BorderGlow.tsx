@@ -15,6 +15,7 @@ import {
   easeInCubic,
   easeOutCubic,
 } from '@/lib/borderGlow';
+import { useHoverCapability } from '@/hooks/useHoverCapability';
 
 type BorderGlowProps = {
   children?: ReactNode;
@@ -43,6 +44,11 @@ type GlowConfig = {
   fillOpacity: number;
 };
 
+type PendingPointer = {
+  x: number;
+  y: number;
+};
+
 type BorderGlowStyle = CSSProperties & {
   '--border-glow-angle': string;
   '--border-glow-border-opacity': number;
@@ -65,6 +71,9 @@ const FILL_MASK = [
 
 const OUTER_GLOW_MASK =
   'conic-gradient(from var(--border-glow-angle) at center, black 2.5%, transparent 10%, transparent 90%, black 97.5%)';
+
+const STATIC_CARD_SHADOW =
+  'rgba(0,0,0,0.1) 0 1px 2px, rgba(0,0,0,0.1) 0 2px 4px, rgba(0,0,0,0.1) 0 4px 8px, rgba(0,0,0,0.1) 0 8px 16px, rgba(0,0,0,0.1) 0 16px 32px, rgba(0,0,0,0.1) 0 32px 64px';
 
 function calculateEdgeProximity(
   width: number,
@@ -105,7 +114,30 @@ function calculateCursorAngle(
   return degrees < 0 ? degrees + 360 : degrees;
 }
 
-export function BorderGlow({
+function StaticGlowCard({
+  children,
+  className = '',
+  backgroundColor = '#120F17',
+  borderRadius = 28,
+}: Pick<
+  BorderGlowProps,
+  'children' | 'className' | 'backgroundColor' | 'borderRadius'
+>) {
+  return (
+    <div
+      className={`relative isolate grid border border-white/15 ${className}`}
+      style={{
+        background: backgroundColor,
+        borderRadius: `${borderRadius}px`,
+        boxShadow: STATIC_CARD_SHADOW,
+      }}
+    >
+      <div className="relative z-1 flex flex-col overflow-auto">{children}</div>
+    </div>
+  );
+}
+
+function InteractiveBorderGlow({
   children,
   className = '',
   edgeSensitivity = 30,
@@ -132,6 +164,9 @@ export function BorderGlow({
     edgeSensitivity,
     fillOpacity,
   });
+
+  const pendingPointerRef = useRef<PendingPointer | null>(null);
+  const rafIdRef = useRef<number | null>(null);
 
   const meshGradients = useMemo(() => buildMeshGradients(colors), [colors]);
 
@@ -304,6 +339,34 @@ export function BorderGlow({
     };
   }, [animated, syncVisualState]);
 
+  const flushPointerUpdate = useCallback(() => {
+    rafIdRef.current = null;
+
+    const card = cardRef.current;
+    const pending = pendingPointerRef.current;
+
+    if (!card || !pending) return;
+
+    const rect = card.getBoundingClientRect();
+    const runtime = runtimeRef.current;
+
+    runtime.edgeProximity = calculateEdgeProximity(
+      rect.width,
+      rect.height,
+      pending.x,
+      pending.y,
+    );
+
+    runtime.cursorAngle = calculateCursorAngle(
+      rect.width,
+      rect.height,
+      pending.x,
+      pending.y,
+    );
+
+    syncVisualState();
+  }, [syncVisualState]);
+
   const handlePointerMove = useCallback(
     (event: ReactPointerEvent<HTMLDivElement>) => {
       const card = cardRef.current;
@@ -311,22 +374,17 @@ export function BorderGlow({
       if (!card) return;
 
       const rect = card.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      const runtime = runtimeRef.current;
 
-      runtime.edgeProximity = calculateEdgeProximity(
-        rect.width,
-        rect.height,
-        x,
-        y,
-      );
+      pendingPointerRef.current = {
+        x: event.clientX - rect.left,
+        y: event.clientY - rect.top,
+      };
 
-      runtime.cursorAngle = calculateCursorAngle(rect.width, rect.height, x, y);
-
-      syncVisualState();
+      if (rafIdRef.current === null) {
+        rafIdRef.current = requestAnimationFrame(flushPointerUpdate);
+      }
     },
-    [syncVisualState],
+    [flushPointerUpdate],
   );
 
   const handlePointerEnter = useCallback(() => {
@@ -339,13 +397,20 @@ export function BorderGlow({
     syncVisualState();
   }, [syncVisualState]);
 
+  useEffect(() => {
+    return () => {
+      if (rafIdRef.current !== null) {
+        cancelAnimationFrame(rafIdRef.current);
+      }
+    };
+  }, []);
+
   const cardStyle = {
     contain: 'layout',
     background: backgroundColor,
     borderRadius: `${borderRadius}px`,
     transform: 'translate3d(0, 0, 0.01px)',
-    boxShadow:
-      'rgba(0,0,0,0.1) 0 1px 2px, rgba(0,0,0,0.1) 0 2px 4px, rgba(0,0,0,0.1) 0 4px 8px, rgba(0,0,0,0.1) 0 8px 16px, rgba(0,0,0,0.1) 0 16px 32px, rgba(0,0,0,0.1) 0 32px 64px',
+    boxShadow: STATIC_CARD_SHADOW,
     '--border-glow-angle': '45deg',
     '--border-glow-border-opacity': 0,
     '--border-glow-fill-opacity': 0,
@@ -415,4 +480,22 @@ export function BorderGlow({
       <div className="relative z-1 flex flex-col overflow-auto">{children}</div>
     </div>
   );
+}
+
+export function BorderGlow(props: BorderGlowProps) {
+  const canHover = useHoverCapability();
+
+  if (!canHover) {
+    return (
+      <StaticGlowCard
+        className={props.className}
+        backgroundColor={props.backgroundColor}
+        borderRadius={props.borderRadius}
+      >
+        {props.children}
+      </StaticGlowCard>
+    );
+  }
+
+  return <InteractiveBorderGlow {...props} />;
 }
