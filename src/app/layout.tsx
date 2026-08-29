@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat, Space_Grotesk } from 'next/font/google';
+import { Raleway, Sansation } from 'next/font/google';
 
 import { Navbar } from '@/components/Navbar';
 import { SmoothScroll } from '@/components/SmoothScroll';
@@ -13,14 +13,15 @@ import {
 
 import './globals.css';
 
-const spaceGrotesk = Space_Grotesk({
-  variable: '--font-space-grotesk',
+const sansation = Sansation({
+  variable: '--font-sansation',
   subsets: ['latin'],
+  weight: ['400', '700'],
   preload: true,
 });
 
-const montserrat = Montserrat({
-  variable: '--font-montserrat',
+const raleway = Raleway({
+  variable: '--font-raleway',
   subsets: ['latin'],
   preload: true,
 });
@@ -55,9 +56,9 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${montserrat.variable} bg-background scroll-smooth motion-reduce:scroll-auto`}
+      className={`${sansation.variable} ${raleway.variable} bg-background scroll-smooth motion-reduce:scroll-auto`}
     >
-      <body className="bg-background text-foreground selection:bg-primary/30 selection:text-foreground flex min-h-dvh flex-col font-sans antialiased">
+      <body className="bg-background text-foreground selection:bg-primary/30 selection:text-foreground flex min-h-dvh flex-col antialiased">
         <Navbar />
         <SmoothScroll>
           <main>{children}</main>

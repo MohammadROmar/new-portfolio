@@ -31,21 +31,16 @@ import swaggerIcon from '@/assets/icons/swagger.svg';
 import reactLeafletIcon from '@/assets/icons/react-leaflet.svg';
 
 export const TECH_ICONS: Readonly<Record<string, StaticImageData>> = {
-  React: reactIcon,
-  'React 19': reactIcon,
+  'React.js': reactIcon,
   TypeScript: typescriptIcon,
   'Next.js': nextjsIcon,
-  'Next.js 15': nextjsIcon,
   Vite: viteIcon,
   'React Router': reactRouterIcon,
-  'React Router v8': reactRouterIcon,
   'TanStack Query': tanstackQueryIcon,
-  'TanStack Query v5': tanstackQueryIcon,
   'Redux Toolkit': reduxToolkitIcon,
   Axios: axiosIcon,
   'React Hook Form': reactHookFormIcon,
   'Tailwind CSS': tailwindCssIcon,
-  'Tailwind CSS v4': tailwindCssIcon,
   'shadcn/ui': shadcnIcon,
   Motion: motionIcon,
   i18next: i18nextIcon,

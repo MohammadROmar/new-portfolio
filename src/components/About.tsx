@@ -1,10 +1,10 @@
 'use client';
 
-import { BadgeCheck, GraduationCap, type LucideIcon } from 'lucide-react';
+import { BadgeCheck, GraduationCap } from 'lucide-react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 
-import { cn } from '@/lib/cn';
 import { Section } from '@/components/Section';
+import { Credential } from '@/components/Credential';
 
 import { GlowLine } from './GlowLine';
 import { BorderGlow } from './BorderGlow';
@@ -118,52 +118,5 @@ export function About() {
         </motion.div>
       </motion.div>
     </Section>
-  );
-}
-
-type CredentialProps = {
-  icon: LucideIcon;
-  label: string;
-  title: string;
-  description: string;
-  meta: string;
-  className?: string;
-};
-
-function Credential({
-  icon: Icon,
-  label,
-  title,
-  description,
-  meta,
-  className,
-}: CredentialProps) {
-  return (
-    <div
-      className={cn('border-border flex gap-4 border-b p-5 sm:p-6', className)}
-    >
-      <span
-        aria-hidden="true"
-        className="border-primary/20 bg-primary/10 text-primary mt-0.5 flex size-10 shrink-0 items-center justify-center rounded-xl border"
-      >
-        <Icon className="size-4.5" strokeWidth={1.8} />
-      </span>
-
-      <div className="min-w-0">
-        <p className="text-primary-hover font-mono text-[11px] font-semibold tracking-[0.16em] uppercase">
-          {label}
-        </p>
-
-        <h3 className="text-foreground mt-2 text-base leading-6 font-semibold">
-          {title}
-        </h3>
-
-        <p className="text-foreground-soft mt-1 text-sm leading-6">
-          {description}
-        </p>
-
-        <p className="text-muted-foreground mt-3 text-sm leading-6">{meta}</p>
-      </div>
-    </div>
   );
 }

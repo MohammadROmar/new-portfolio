@@ -34,10 +34,10 @@ export const TOOLKIT_GROUPS = [
     description:
       'Typed boundaries and clear domain ownership keep complex products easier to extend, review, and maintain as they grow.',
     technologies: [
-      { label: 'React 19', icon: reactIcon },
+      { label: 'React.js', icon: reactIcon },
       { label: 'TypeScript', icon: typescriptIcon },
       { label: 'Next.js', icon: nextjsIcon },
-      { label: 'React Router v8', icon: reactRouterIcon },
+      { label: 'React Router', icon: reactRouterIcon },
       {
         label: 'Feature-Sliced Design',
         icon: featureSlicedDesignIcon,
@@ -62,7 +62,7 @@ export const TOOLKIT_GROUPS = [
     description:
       'Responsive UI, accessible interaction, purposeful motion, and a performance-conscious delivery path are treated as one system.',
     technologies: [
-      { label: 'Tailwind CSS v4', icon: tailwindCssIcon },
+      { label: 'Tailwind CSS', icon: tailwindCssIcon },
       { label: 'shadcn/ui', icon: shadcnIcon },
       { label: 'Motion', icon: motionIcon },
       { label: 'i18next', icon: i18nextIcon },

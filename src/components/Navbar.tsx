@@ -117,8 +117,8 @@ function MobileMenu({
       animate={{ opacity: 1, y: 0, scale: 1 }}
       aria-label="Mobile navigation"
       className={cn(
-        'absolute top-[calc(100%+0.5rem)] right-1 z-20 flex min-w-52 flex-col gap-0.5 overflow-hidden rounded-[14px]',
-        'border border-white/6 bg-[rgba(18,15,23,0.88)] p-2 shadow-[0_8px_32px_rgba(0,0,0,0.4)]',
+        'pointer-events-auto fixed top-21 right-6 z-20 flex min-w-52 flex-col gap-0.5 overflow-hidden rounded-[14px]',
+        'border border-white/6 bg-[rgba(18,15,23,0.62)] p-2 shadow-[0_8px_32px_rgba(0,0,0,0.4)]',
         'backdrop-blur-xl backdrop-saturate-[1.3] md:hidden',
       )}
       exit={{ opacity: 0, y: -6, scale: 0.985 }}
@@ -179,7 +179,7 @@ function MobileMenu({
 export function Navbar({
   brandLabel = 'Home',
   links = DEFAULT_LINKS,
-  scrollThreshold = 50,
+  scrollThreshold = 40,
   className,
 }: NavbarProps) {
   const pathname = usePathname();
@@ -315,17 +315,17 @@ export function Navbar({
             />
           </motion.button>
         </div>
-
-        <AnimatePresence initial={false}>
-          {menuOpen ? (
-            <MobileMenu
-              activeHref={activeHref}
-              links={links}
-              onNavigate={() => setMenuOpen(false)}
-            />
-          ) : null}
-        </AnimatePresence>
       </motion.div>
+
+      <AnimatePresence initial={false}>
+        {menuOpen ? (
+          <MobileMenu
+            activeHref={activeHref}
+            links={links}
+            onNavigate={() => setMenuOpen(false)}
+          />
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

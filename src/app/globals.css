@@ -14,8 +14,8 @@
   --color-muted-foreground: #a9a0b7;
   --color-subtle-foreground: #756d81;
 
-  --font-title: var(--font-space-grotesk);
-  --font-montserrat: var(--font-montserrat);
+  --font-title: var(--font-sansation);
+  --font-raleway: var(--font-raleway);
 
   --color-primary: #a78bfa;
   --color-primary-hover: #b9a4fc;
@@ -67,7 +67,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-montserrat antialiased;
+    @apply bg-background text-foreground font-raleway antialiased;
   }
 
   ::selection {
