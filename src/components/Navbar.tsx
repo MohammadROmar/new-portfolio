@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useId, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
-import { FileText } from 'lucide-react';
 
 import { cn } from '@/lib/cn';
 import { useScrolledPast } from '@/hooks/useScrolledPast';
@@ -17,7 +16,6 @@ import { GithubIcon } from './GithubIcon';
 import { ResumeLink } from './ResumeLink';
 
 const GITHUB_URL = 'https://github.com/MohammadROmar/';
-const RESUME_URL = '/resume/Mohammad-Omar-Resume.pdf';
 
 export type NavbarProps = {
   brandLabel?: string;
@@ -145,20 +143,13 @@ function MobileMenu({
         </Link>
       ))}
 
-      <a
+      <Link
+        href="/resume"
         className={MOBILE_EXTERNAL_LINK_CLASSES}
-        href={RESUME_URL}
-        onClick={onNavigate}
-        rel="noopener noreferrer"
-        target="_blank"
+        onNavigate={onNavigate}
       >
-        <span className="inline-flex items-center gap-2">
-          <FileText aria-hidden="true" className="text-primary size-3.5" />
-          Resume
-        </span>
-
-        <span className="sr-only">PDF, opens in a new tab</span>
-      </a>
+        Resume
+      </Link>
 
       <a
         className={MOBILE_EXTERNAL_LINK_CLASSES}
@@ -241,7 +232,7 @@ export function Navbar({
               aria-label={brandLabel}
               className="flex items-center rounded-lg focus-visible:ring-2 focus-visible:ring-violet-400/80 focus-visible:outline-none"
               href="/"
-              onClick={() => setMenuOpen(false)}
+              onNavigate={() => setMenuOpen(false)}
             >
               <Logo />
             </Link>

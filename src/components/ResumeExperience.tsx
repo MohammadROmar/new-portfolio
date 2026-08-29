@@ -36,7 +36,7 @@ const LINK_CLASSES =
   'text-foreground-soft hover:text-foreground focus-visible:outline-focus inline-flex items-center gap-1 text-sm transition-colors outline-none focus-visible:outline-2 focus-visible:outline-offset-4';
 
 const BADGE_CLASSES =
-  'bg-primary/20 text-foreground-soft rounded-md px-2.5 py-1 text-xs';
+  'bg-primary/15 text-foreground-soft rounded-md px-2.5 py-1 text-xs';
 
 type ResumeExperienceProps = {
   entries: readonly ResumeExperienceEntry[];
