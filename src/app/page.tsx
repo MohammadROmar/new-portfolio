@@ -2,6 +2,7 @@ import { Hero as HeroContent } from '@/components/Hero';
 import { FloatingLines } from '@/components/FloatingLines';
 import { About } from '@/components/About';
 import { EngineeringApproach } from '@/components/EngineeringApproach';
+import { Projects } from '@/components/Projects';
 
 export default function LandingPage() {
   return (
@@ -9,6 +10,7 @@ export default function LandingPage() {
       <Hero />
       <About />
       <EngineeringApproach />
+      <Projects />
     </>
   );
 }

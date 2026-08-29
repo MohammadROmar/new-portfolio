@@ -1,9 +1,12 @@
 'use client';
 
 import type { ComponentProps, ReactNode } from 'react';
+import Link from 'next/link';
 import { motion, useReducedMotion } from 'motion/react';
 
 import { cn } from '@/lib/cn';
+
+const MotionLink = motion.create(Link);
 
 type SharedProps = {
   children: ReactNode;
@@ -31,6 +34,10 @@ const BASE_CLASSES = [
   'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus',
   'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-45',
 ].join(' ');
+
+function isInternalHref(href: string) {
+  return href.startsWith('/') && !href.startsWith('//');
+}
 
 function AppButtonContent({
   children,
@@ -117,15 +124,36 @@ export function Button(props: PortfolioButtonProps) {
       ...anchorProps
     } = props;
     const classes = getAppButtonClasses(className);
+    const motionProps = {
+      transition: { type: 'spring' as const, stiffness: 430, damping: 28 },
+      whileHover: reduceMotion ? undefined : { y: -1 },
+      whileTap: reduceMotion ? undefined : { scale: 0.98 },
+    };
+
+    if (isInternalHref(href)) {
+      return (
+        <MotionLink
+          {...anchorProps}
+          className={classes}
+          href={href}
+          {...motionProps}
+        >
+          <AppButtonContent
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+          >
+            {children}
+          </AppButtonContent>
+        </MotionLink>
+      );
+    }
 
     return (
       <motion.a
         {...anchorProps}
         className={classes}
         href={href}
-        transition={{ type: 'spring', stiffness: 430, damping: 28 }}
-        whileHover={reduceMotion ? undefined : { y: -1 }}
-        whileTap={reduceMotion ? undefined : { scale: 0.98 }}
+        {...motionProps}
       >
         <AppButtonContent leadingIcon={leadingIcon} trailingIcon={trailingIcon}>
           {children}
@@ -167,15 +195,36 @@ export function CtaButton(props: PortfolioButtonProps) {
       ...anchorProps
     } = props;
     const classes = getCtaButtonClasses(className);
+    const motionProps = {
+      transition: { type: 'spring' as const, stiffness: 430, damping: 26 },
+      whileHover: reduceMotion ? undefined : { y: -2 },
+      whileTap: reduceMotion ? undefined : { scale: 0.985 },
+    };
+
+    if (isInternalHref(href)) {
+      return (
+        <MotionLink
+          {...anchorProps}
+          className={classes}
+          href={href}
+          {...motionProps}
+        >
+          <CtaButtonContent
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+          >
+            {children}
+          </CtaButtonContent>
+        </MotionLink>
+      );
+    }
 
     return (
       <motion.a
         {...anchorProps}
         className={classes}
         href={href}
-        transition={{ type: 'spring', stiffness: 430, damping: 26 }}
-        whileHover={reduceMotion ? undefined : { y: -2 }}
-        whileTap={reduceMotion ? undefined : { scale: 0.985 }}
+        {...motionProps}
       >
         <CtaButtonContent leadingIcon={leadingIcon} trailingIcon={trailingIcon}>
           {children}

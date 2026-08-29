@@ -3,6 +3,13 @@ import { Montserrat, Space_Grotesk } from 'next/font/google';
 
 import { Navbar } from '@/components/Navbar';
 import { SmoothScroll } from '@/components/SmoothScroll';
+import {
+  DEFAULT_OG_IMAGE,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from '@/constants/siteConfig';
 
 import './globals.css';
 
@@ -19,12 +26,29 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Mohammad Omar — Frontend Developer',
+    default: SITE_TITLE,
     template: '%s | Mohammad Omar',
   },
-  description:
-    'Frontend developer building polished, accessible, and performant web applications.',
+  description: SITE_DESCRIPTION,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

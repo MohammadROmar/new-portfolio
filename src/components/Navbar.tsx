@@ -119,7 +119,7 @@ function MobileMenu({
       className={cn(
         'absolute top-[calc(100%+0.5rem)] right-1 z-20 flex min-w-52 flex-col gap-0.5 overflow-hidden rounded-[14px]',
         'border border-white/6 bg-[rgba(18,15,23,0.88)] p-2 shadow-[0_8px_32px_rgba(0,0,0,0.4)]',
-        'backdrop-blur-[32px] backdrop-saturate-[1.3] md:hidden',
+        'backdrop-blur-xl backdrop-saturate-[1.3] md:hidden',
       )}
       exit={{ opacity: 0, y: -6, scale: 0.985 }}
       id="mobile-navigation"
