@@ -52,13 +52,19 @@ const ADDITIONAL_PROJECTS = RESUME_EXPERIENCE.filter(
   (entry) => entry.category === 'additional',
 );
 
+const HEADER_CONTACTS = RESUME_CONTACTS.map(({ label, value, href }) => ({
+  label,
+  value,
+  href,
+}));
+
 export default function ResumePage() {
   return (
     <article className="mx-auto max-w-3xl px-5 py-20 pt-28 sm:py-24 sm:pt-32 md:px-6">
       <ResumeHeader
         name={RESUME_NAME}
         role={RESUME_ROLE}
-        contacts={RESUME_CONTACTS}
+        contacts={HEADER_CONTACTS}
         pdfHref={RESUME_PDF_HREF}
         pdfFilename={RESUME_PDF_FILENAME}
       />

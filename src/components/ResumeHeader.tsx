@@ -38,7 +38,7 @@ const ITEM_VARIANTS: Variants = {
 type ResumeHeaderProps = {
   name: string;
   role: string;
-  contacts: readonly ResumeContact[];
+  contacts: ReadonlyArray<Pick<ResumeContact, 'label' | 'value' | 'href'>>;
   pdfHref: string;
   pdfFilename: string;
 };

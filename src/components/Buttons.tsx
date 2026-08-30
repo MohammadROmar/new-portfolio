@@ -267,8 +267,7 @@ function getAppButtonClasses(className?: string) {
 function getCtaButtonClasses(className?: string) {
   return cn(
     BASE_CLASSES,
-    'p-px text-background',
-    'bg-linear-to-r from-gradient-3 via-primary-hover to-gradient-5',
+    'w-fit p-px text-background',
     'shadow-[0_18px_50px_-22px_var(--color-primary)]',
     'before:pointer-events-none before:absolute before:inset-x-5 before:-bottom-3 before:h-7 before:rounded-full before:bg-primary/45 before:opacity-60 before:blur-xl before:transition-opacity before:duration-300',
     'hover:before:opacity-90 motion-reduce:before:transition-none',

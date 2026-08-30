@@ -1,3 +1,9 @@
+import { Mail, MapPin, Phone } from 'lucide-react';
+
+import { GithubIcon } from '@/components/GithubIcon';
+import { LinkedinIcon } from '@/components/LinkedinIcon';
+import type { IconComponent } from '@/lib/icon';
+
 export const RESUME_PAGE_HREF = '/resume';
 export const RESUME_PDF_HREF = '/resume/Mohammad-Omar-Resume.pdf';
 export const RESUME_PDF_FILENAME = 'Mohammad-Omar-Resume.pdf';
@@ -11,6 +17,7 @@ export const RESUME_SUMMARY =
   'Frontend Engineer specializing in React and TypeScript architecture for complex, data-intensive products. Built the frontend foundation of IntelliPharma, a bilingual pharmaceutical ERP/CRM spanning 1,100+ source files, 21 domain entities, 60 feature slices, and 67 route-level pages. Strong in Feature-Sliced Design, typed API boundaries, TanStack Query data orchestration, role-based access control, resilient session management, real-time workflows, and performance-focused UI delivery. Comfortable owning a project end-to-end — from requirements and architecture through critical code review, debugging, optimization, validation, and production delivery.';
 
 export type ResumeContact = {
+  icon: IconComponent;
   label: string;
   value: string;
   href?: string;
@@ -18,25 +25,30 @@ export type ResumeContact = {
 
 export const RESUME_CONTACTS: readonly ResumeContact[] = [
   {
+    icon: Mail,
     label: 'Email',
     value: 'mohammad.riyad.omar@gmail.com',
     href: 'mailto:mohammad.riyad.omar@gmail.com',
   },
   {
+    icon: Phone,
     label: 'Phone',
     value: '+963 935 239 163',
     href: 'tel:+963935239163',
   },
   {
+    icon: MapPin,
     label: 'Location',
     value: 'Damascus, Syria',
   },
   {
+    icon: GithubIcon,
     label: 'GitHub',
     value: 'MohammadROmar',
     href: 'https://github.com/MohammadROmar',
   },
   {
+    icon: LinkedinIcon,
     label: 'LinkedIn',
     value: 'Mohammad R. Omar',
     href: 'https://linkedin.com/in/mohammad-r-omar',

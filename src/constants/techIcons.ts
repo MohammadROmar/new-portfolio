@@ -29,6 +29,7 @@ import viteIcon from '@/assets/icons/vite.svg';
 import postmanIcon from '@/assets/icons/postman.svg';
 import swaggerIcon from '@/assets/icons/swagger.svg';
 import reactLeafletIcon from '@/assets/icons/react-leaflet.svg';
+import nextIntlIcon from '@/assets/icons/next-intl.svg';
 
 export const TECH_ICONS: Readonly<Record<string, StaticImageData>> = {
   'React.js': reactIcon,
@@ -61,6 +62,7 @@ export const TECH_ICONS: Readonly<Record<string, StaticImageData>> = {
   Postman: postmanIcon,
   Swagger: swaggerIcon,
   'React Leaflet': reactLeafletIcon,
+  'next-intl': nextIntlIcon,
 } satisfies Record<string, StaticImageData>;
 
 export function getTechIcon(label: string): StaticImageData | undefined {

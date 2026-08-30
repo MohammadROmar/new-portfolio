@@ -5,6 +5,7 @@ import { motion, useReducedMotion, type Variants } from 'motion/react';
 
 import { Section } from '@/components/Section';
 import { Credential } from '@/components/Credential';
+import { SIGNATURE_CARD_GLOW_PROPS } from '@/constants/borderGlow';
 
 import { GlowLine } from './GlowLine';
 import { BorderGlow } from './BorderGlow';
@@ -78,19 +79,7 @@ export function About() {
         </motion.article>
 
         <motion.div variants={ITEM_VARIANTS}>
-          <BorderGlow
-            className="w-full"
-            edgeSensitivity={34}
-            glowColor="255 92 76"
-            backgroundColor="#110D18"
-            borderRadius={28}
-            glowRadius={34}
-            glowIntensity={0.75}
-            coneSpread={22}
-            animated={false}
-            colors={['#5B21B6', '#7846C7', '#A78BFA', '#C4B5FD']}
-            fillOpacity={0.06}
-          >
+          <BorderGlow {...SIGNATURE_CARD_GLOW_PROPS}>
             <aside
               aria-label="Education and certification"
               className="relative overflow-hidden rounded-[28px]"

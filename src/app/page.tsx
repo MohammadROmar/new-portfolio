@@ -3,6 +3,7 @@ import { FloatingLines } from '@/components/FloatingLines';
 import { About } from '@/components/About';
 import { EngineeringApproach } from '@/components/EngineeringApproach';
 import { Projects } from '@/components/Projects';
+import { Contact } from '@/components/Contact';
 
 export default function LandingPage() {
   return (
@@ -11,6 +12,7 @@ export default function LandingPage() {
       <About />
       <EngineeringApproach />
       <Projects />
+      <Contact />
     </>
   );
 }

@@ -7,6 +7,7 @@ import { BorderGlow } from '@/components/BorderGlow';
 import { GlowLine } from '@/components/GlowLine';
 import { TechStackList } from '@/components/TechStackList';
 import type { Project } from '@/constants/projects';
+import { SIGNATURE_CARD_GLOW_PROPS } from '@/constants/borderGlow';
 
 const STACK_PREVIEW_COUNT = 4;
 
@@ -19,19 +20,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const { slug, title, tagline, stack, cover, featured } = project;
 
   return (
-    <BorderGlow
-      className="h-full w-full"
-      edgeSensitivity={34}
-      glowColor="255 92 76"
-      backgroundColor="#110D18"
-      borderRadius={28}
-      glowRadius={34}
-      glowIntensity={0.75}
-      coneSpread={22}
-      animated={false}
-      colors={['#5B21B6', '#7846C7', '#A78BFA', '#C4B5FD']}
-      fillOpacity={0.06}
-    >
+    <BorderGlow {...SIGNATURE_CARD_GLOW_PROPS} className="h-full w-full">
       <div className="group relative flex h-full flex-col overflow-hidden rounded-[28px]">
         <GlowLine />
 

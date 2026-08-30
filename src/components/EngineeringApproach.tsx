@@ -16,6 +16,7 @@ import {
   TOOLKIT_GROUPS,
   TOOLKIT_ITEM_VARIANTS,
 } from '@/constants/engineeringToolkit';
+import { SIGNATURE_CARD_GLOW_PROPS } from '@/constants/borderGlow';
 
 import { GlowLine } from './GlowLine';
 
@@ -29,19 +30,7 @@ export function EngineeringApproach() {
       title="Tools chosen with intent."
       subtitle="A focused stack for building complex, dependable frontend products."
     >
-      <BorderGlow
-        className="w-full"
-        edgeSensitivity={34}
-        glowColor="255 92 76"
-        backgroundColor="#110D18"
-        borderRadius={28}
-        glowRadius={34}
-        glowIntensity={0.75}
-        coneSpread={22}
-        animated={false}
-        colors={['#5B21B6', '#7846C7', '#A78BFA', '#C4B5FD']}
-        fillOpacity={0.06}
-      >
+      <BorderGlow {...SIGNATURE_CARD_GLOW_PROPS}>
         <div className="relative isolate overflow-hidden rounded-[28px] shadow-[0_24px_80px_-48px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.04)]">
           <GlowLine />
 
