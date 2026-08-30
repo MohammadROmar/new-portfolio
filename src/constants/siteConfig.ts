@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION =
   'Frontend developer building polished, accessible, and performant web applications.';
 
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://mohammad-omar.vercel.app'
+  process.env.NEXT_PUBLIC_SITE_URL?.trim() || ''
 ).replace(/\/+$/, '');
 
 export const DEFAULT_OG_IMAGE = {
@@ -14,4 +14,11 @@ export const DEFAULT_OG_IMAGE = {
   width: 1200,
   height: 630,
   alt: `${SITE_NAME} — Frontend Developer`,
+} as const;
+
+export const PROJECTS_OG_IMAGE = {
+  url: '/og-projects.jpg',
+  width: 1200,
+  height: 630,
+  alt: `Projects — ${SITE_NAME}`,
 } as const;

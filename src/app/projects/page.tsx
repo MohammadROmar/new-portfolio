@@ -4,7 +4,7 @@ import { Section } from '@/components/Section';
 import { ProjectsGrid } from '@/components/ProjectsGrid';
 import { OtherProjectsList } from '@/components/OtherProjectsList';
 import { getFeaturedProjects, getOtherProjects } from '@/constants/projects';
-import { SITE_NAME } from '@/constants/siteConfig';
+import { PROJECTS_OG_IMAGE, SITE_NAME } from '@/constants/siteConfig';
 
 const PAGE_DESCRIPTION =
   'Selected engineering projects by Mohammad Omar — React and TypeScript products taken from architecture to production.';
@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     url: '/projects',
     title: `Projects | ${SITE_NAME}`,
     description: PAGE_DESCRIPTION,
+    images: [PROJECTS_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
