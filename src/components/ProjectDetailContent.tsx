@@ -3,10 +3,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
-import { ArrowLeft, ArrowUpLeft, ArrowUpRight } from 'lucide-react';
+import {
+  ArrowLeft,
+  ArrowUpLeft,
+  ArrowUpRight,
+  Image as ImageIcon,
+} from 'lucide-react';
 
 import githubIcon from '@/assets/icons/github.svg';
-import { cn } from '@/lib/cn';
 import { SectionHeading } from '@/components/Section';
 import { BorderGlow } from '@/components/BorderGlow';
 import { GlowLine } from '@/components/GlowLine';
@@ -196,6 +200,8 @@ export function ProjectDetailContent({
                             unoptimized
                             className="size-3.5"
                           />
+                        ) : link.type === 'resource' ? (
+                          <ImageIcon aria-hidden="true" className="size-3.5" />
                         ) : (
                           <ArrowUpRight
                             aria-hidden="true"
@@ -217,7 +223,7 @@ export function ProjectDetailContent({
         <motion.nav
           variants={ITEM_VARIANTS}
           aria-label="More projects"
-          className="border-border mt-16 grid gap-6 border-t pt-10 sm:mt-20 sm:grid-cols-2 sm:pt-12"
+          className="border-border mt-16 flex flex-wrap items-center justify-between gap-6 border-t pt-10 sm:mt-20 sm:pt-12"
         >
           {previous ? (
             <Link
@@ -242,12 +248,9 @@ export function ProjectDetailContent({
           {next ? (
             <Link
               href={`/projects/${next.slug}`}
-              className={cn(
-                'group focus-visible:outline-focus flex flex-col outline-none focus-visible:outline-2 focus-visible:outline-offset-4',
-                'sm:items-end sm:text-right',
-              )}
+              className="group focus-visible:outline-focus flex flex-col outline-none focus-visible:outline-2 focus-visible:outline-offset-4"
             >
-              <span className="text-muted-foreground inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold tracking-[0.14em] uppercase">
+              <span className="text-muted-foreground flex items-center justify-end gap-1.5 font-mono text-[11px] font-semibold tracking-[0.14em] uppercase">
                 Next
                 <ArrowUpRight
                   aria-hidden="true"

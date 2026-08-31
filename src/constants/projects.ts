@@ -3,7 +3,7 @@ export type ProjectImage = { src: string; alt: string };
 export type ProjectLink = {
   label: string;
   href: string;
-  type: 'repo' | 'demo';
+  type: 'repo' | 'demo' | 'resource';
 };
 
 export type Project = {
@@ -37,20 +37,24 @@ export const PROJECTS: readonly Project[] = [
     ],
     stack: [
       'React.js',
-      'TypeScript',
-      'Vite',
+      'Feature-Sliced Design',
       'React Router',
-      'TanStack Query',
       'Redux Toolkit',
+      'TanStack Query',
+      'shadcn/ui',
+      'Vite',
+      'TypeScript',
       'Axios',
+      'React Hook Form',
       'Tailwind CSS',
       'i18next',
-      'shadcn/ui',
       'Laravel',
+      'Laravel Echo',
+      'Pusher',
       'Postman',
       'Firebase',
-      'Lucide',
       'React Leaflet',
+      'Recharts',
     ],
     highlights: [
       'Architected a strict Feature-Sliced Design codebase across app, pages, features, entities, shared, and widgets layers, keeping dependency direction explicit across 1,100+ source files.',
@@ -81,12 +85,12 @@ export const PROJECTS: readonly Project[] = [
     stack: [
       'React.js',
       'TypeScript',
-      'Vite',
       'Tailwind CSS',
-      'Jotai',
+      'PWA / Service Workers',
       'Motion',
       'Radix UI',
-      'PWA / Service Workers',
+      'Jotai',
+      'Vite',
     ],
     highlights: [
       'Delivered an offline-first Arabic RTL application for managing timed and open-ended PC and PlayStation sessions.',
@@ -94,6 +98,95 @@ export const PROJECTS: readonly Project[] = [
       'Directed a transparent AI-assisted workflow — owning requirements, architecture, UI iteration, code review, and final delivery.',
     ],
     links: [],
+    featured: true,
+  },
+  {
+    slug: 'casecobra',
+    title: 'CaseCobra',
+    tagline:
+      'A custom product e-commerce flow with live preview and Stripe checkout.',
+    role: 'Personal project',
+    description: [
+      'CaseCobra is an end-to-end customization and checkout flow for a custom product store: upload an image, preview it on the product live, and check out securely.',
+      'The flow persists product configuration through a database layer and handles payment through Stripe, from image upload to confirmed order.',
+    ],
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'Stripe',
+      'Prisma',
+      'Resend',
+      'Kinde',
+      'UploadThing',
+    ],
+    highlights: [
+      'Developed an end-to-end customization and checkout flow with image upload and live product preview.',
+      'Persisted product configuration with database integration.',
+      'Integrated secure Stripe payments end to end.',
+    ],
+    links: [
+      {
+        label: 'Live demo',
+        href: 'https://casecobra-app.vercel.app/',
+        type: 'demo',
+      },
+      {
+        label: 'GitHub repo',
+        href: 'https://github.com/MohammadROmar/casecobra/',
+        type: 'repo',
+      },
+    ],
+    featured: true,
+  },
+  {
+    slug: 'ouzoun',
+    title: 'Ouzoun',
+    tagline:
+      'An administration platform for dental clinics, connecting web, backend, and two mobile apps.',
+    role: 'Team project',
+    team: 'Team of 5 — 2 backend, 2 mobile, and me on the admin dashboard frontend.',
+    description: [
+      'Ouzoun is an administration platform for dental operations, tools, implants, and assistants, built by a five-person team with an ASP.NET backend and two companion Flutter mobile applications for connected clinic workflows. I owned the admin dashboard frontend.',
+      'The platform includes real-time notifications, role-based administration, and interactive analytics dashboards that give clinic staff visibility into day-to-day operations.',
+    ],
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'ASP.NET',
+      'next-intl',
+      'Swagger',
+      'Firebase',
+      'React Leaflet',
+      'Recharts',
+    ],
+    highlights: [
+      'Built an administration platform for dental operations, tools, implants, assistants, and analytics.',
+      'Integrated an ASP.NET backend with two Flutter mobile applications.',
+      'Implemented real-time notifications, role-based administration, and interactive analytics dashboards.',
+    ],
+    links: [
+      { label: 'Live demo', href: 'https://ouzoun.vercel.app/', type: 'demo' },
+      {
+        label: 'Dashboard repo',
+        href: 'https://github.com/MohammadROmar/ouzoun',
+        type: 'repo',
+      },
+      {
+        label: 'Backend repo',
+        href: 'https://github.com/Loukas998/Ouzon',
+        type: 'repo',
+      },
+      {
+        label: 'Assistant app repo',
+        href: 'https://github.com/grace945/Assistant_Ouzoun_App',
+        type: 'repo',
+      },
+      {
+        label: 'Doctor app repo',
+        href: 'https://github.com/HadelBrmo/doctor_ouzoune/tree/eb11006f0d60b8edf3883431cf2079e7ab25c46f',
+        type: 'repo',
+      },
+    ],
     featured: true,
   },
   {
@@ -131,65 +224,6 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
-    featured: true,
-  },
-  {
-    slug: 'ouzoun',
-    title: 'Ouzoun',
-    tagline:
-      'An administration platform for dental clinics, connecting web, backend, and two mobile apps.',
-    role: 'Team project',
-    team: 'Team of 5 — 2 backend, 2 mobile, and me on the admin dashboard frontend.',
-    description: [
-      'Ouzoun is an administration platform for dental operations, tools, implants, and assistants, built by a five-person team with an ASP.NET backend and two companion Flutter mobile applications for connected clinic workflows. I owned the admin dashboard frontend.',
-      'The platform includes real-time notifications, role-based administration, and interactive analytics dashboards that give clinic staff visibility into day-to-day operations.',
-    ],
-    stack: [
-      'Next.js',
-      'TypeScript',
-      'ASP.NET',
-      'next-intl',
-      'Swagger',
-      'Firebase',
-    ],
-    highlights: [
-      'Built an administration platform for dental operations, tools, implants, assistants, and analytics.',
-      'Integrated an ASP.NET backend with two Flutter mobile applications.',
-      'Implemented real-time notifications, role-based administration, and interactive analytics dashboards.',
-    ],
-    links: [
-      { label: 'Live demo', href: 'https://ouzoun.vercel.app/', type: 'demo' },
-    ],
-    featured: true,
-  },
-  {
-    slug: 'casecobra',
-    title: 'CaseCobra',
-    tagline:
-      'A custom product e-commerce flow with live preview and Stripe checkout.',
-    role: 'Personal project',
-    description: [
-      'CaseCobra is an end-to-end customization and checkout flow for a custom product store: upload an image, preview it on the product live, and check out securely.',
-      'The flow persists product configuration through a database layer and handles payment through Stripe, from image upload to confirmed order.',
-    ],
-    stack: ['Next.js', 'TypeScript', 'Stripe', 'Prisma', 'UploadThing'],
-    highlights: [
-      'Developed an end-to-end customization and checkout flow with image upload and live product preview.',
-      'Persisted product configuration with database integration.',
-      'Integrated secure Stripe payments end to end.',
-    ],
-    links: [
-      {
-        label: 'Live demo',
-        href: 'https://casecobra-app.vercel.app/',
-        type: 'demo',
-      },
-      {
-        label: 'GitHub repo',
-        href: 'https://github.com/MohammadROmar/casecobra/',
-        type: 'repo',
-      },
-    ],
     featured: false,
   },
   {
@@ -203,14 +237,13 @@ export const PROJECTS: readonly Project[] = [
       'Data fetching runs through TanStack Query for caching and background refetching, with Recharts turning the forecast into readable charts, and a privacy-first approach that keeps search history local to the session.',
     ],
     stack: [
-      'React',
+      'React.js',
       'TypeScript',
       'Tailwind CSS',
       'shadcn/ui',
       'React Router',
       'TanStack Query',
       'Recharts',
-      'Lucide',
     ],
     highlights: [
       'Built location-based and city-search weather lookups backed by the OpenWeatherMap API.',
@@ -232,6 +265,102 @@ export const PROJECTS: readonly Project[] = [
     featured: false,
   },
   {
+    slug: 'balagh',
+    title: 'Balagh',
+    tagline:
+      'A government complaint-management dashboard with role-based access and exclusive complaint locking.',
+    role: 'Team project',
+    team: 'Team of 4 — 2 backend, 1 mobile, and me on the admin/employee dashboard frontend.',
+    description: [
+      "Balagh is an administrative dashboard for receiving, managing, and processing citizens' complaints, built by a four-person team — an ASP.NET backend, a Flutter mobile app for citizens, and this web dashboard for administrators and employees.",
+      'Role-based access keeps administrators and employees in separate lanes: admins see statistics and manage employees, while employees work their assigned complaints. Backend-enforced exclusive locking means only the employee handling a complaint can act on it — everyone else sees who currently owns it.',
+    ],
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'next-intl',
+      'ASP.NET',
+      'Swagger',
+    ],
+    highlights: [
+      'Built role-based dashboards for administrators (statistics, employee management, full complaint visibility) and employees (assigned and available complaints).',
+      'Implemented backend-enforced exclusive complaint locking — once an employee claims a complaint, only they can act on it, and the UI reflects who currently holds it.',
+      'Delivered paginated, filterable complaint and employee lists, with statistics and reports exportable as PDF.',
+      'Added bilingual (Arabic/English) support and light/dark theming with next-intl and next-themes.',
+    ],
+    links: [
+      {
+        label: 'Live demo',
+        href: 'https://balagh-app.vercel.app/',
+        type: 'demo',
+      },
+      {
+        label: 'Frontend repo',
+        href: 'https://github.com/MohammadROmar/balagh/',
+        type: 'repo',
+      },
+      {
+        label: 'Backend repo',
+        href: 'https://github.com/waitwhat2231/Balagh',
+        type: 'repo',
+      },
+      {
+        label: 'Mobile app repo',
+        href: 'https://github.com/Mustafa-Sharaf/Balagh',
+        type: 'repo',
+      },
+    ],
+    featured: false,
+  },
+  {
+    slug: 'nova-bank',
+    title: 'NovaBank',
+    tagline:
+      'A banking dashboard demonstrating classic software design patterns, built for a Software Engineering course.',
+    role: 'Team project',
+    description: [
+      'NovaBank is a banking dashboard built for a Software Engineering course, focused on applying classic design patterns — including Singleton and Strategy — within a real-world frontend architecture.',
+      'The app cleanly separates UI, business-logic abstraction, and API communication, talking to a dedicated ASP.NET backend and a companion Flutter mobile app built by teammates.',
+    ],
+    stack: [
+      'Next.js',
+      'React.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'ASP.NET',
+      'Swagger',
+    ],
+    highlights: [
+      'Applied the Strategy pattern for interchangeable business logic and Singleton for shared, single-instance services.',
+      'Separated UI, business-logic abstraction, and API communication into distinct layers for a maintainable, pattern-driven architecture.',
+      'Built two role-gated permission tiers — manager and admin — with managers restricted from creating other managers.',
+    ],
+    links: [
+      {
+        label: 'Live demo',
+        href: 'https://nova-bank-one.vercel.app/',
+        type: 'demo',
+      },
+      {
+        label: 'Frontend repo',
+        href: 'https://github.com/MohammadROmar/nova-bank',
+        type: 'repo',
+      },
+      {
+        label: 'Backend repo',
+        href: 'https://github.com/waitwhat2231/Modular-Banking-System',
+        type: 'repo',
+      },
+      {
+        label: 'Mobile app repo',
+        href: 'https://github.com/Mustafa-Sharaf/novabank',
+        type: 'repo',
+      },
+    ],
+    featured: false,
+  },
+  {
     slug: 'stacked',
     title: 'Stacked',
     tagline:
@@ -241,7 +370,13 @@ export const PROJECTS: readonly Project[] = [
       'Stacked visualizes how different search algorithms — DFS, BFS, A*, and uniform-cost search — explore a grid to find a path, with animated path visualization built on predictable state transitions.',
       'The interaction model stays responsive across screen sizes, turning an algorithms concept into something you can watch unfold step by step.',
     ],
-    stack: ['React', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'Motion'],
+    stack: [
+      'React.js',
+      'TypeScript',
+      'Redux Toolkit',
+      'Tailwind CSS',
+      'Motion',
+    ],
     highlights: [
       'Implemented DFS, BFS, A*, and uniform-cost search with animated path visualization.',
       'Built predictable state transitions with Redux Toolkit.',
@@ -257,6 +392,51 @@ export const PROJECTS: readonly Project[] = [
         label: 'GitHub repo',
         href: 'https://github.com/MohammadROmar/stacked/',
         type: 'repo',
+      },
+    ],
+    featured: false,
+  },
+  {
+    slug: 'skillnest',
+    title: 'SkillNest',
+    tagline:
+      'An educational platform with course browsing, cart, and simulated auth — built as a Prokaders training project.',
+    role: 'Training project',
+    description: [
+      'SkillNest simulates an online learning platform: browsing courses with pagination, viewing course details, and managing a cart, with a login simulation that gates cart actions without a real backend.',
+      'Built during a 16-hour frontend development track at Prokaders, it follows modern React practices — Context and useReducer for cart and auth state, React Router v6 with nested and lazy-loaded routes, and persisted state via localStorage.',
+    ],
+    stack: ['React.js', 'React Router', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    highlights: [
+      'Implemented course browsing with pagination, detail pages, and full cart management (add, remove, clear).',
+      'Simulated authentication state with React Context and useReducer, persisting cart and login state to localStorage.',
+      'Built nested, lazy-loaded routing with React Router v6 for a clean, scalable navigation structure.',
+    ],
+    links: [
+      {
+        label: 'Live demo',
+        href: 'https://skillnest-app.vercel.app/',
+        type: 'demo',
+      },
+      {
+        label: 'GitHub repo',
+        href: 'https://github.com/MohammadROmar/skillnest',
+        type: 'repo',
+      },
+      {
+        label: 'Images — Unsplash',
+        href: 'https://unsplash.com/',
+        type: 'resource',
+      },
+      {
+        label: 'Illustrations — unDraw',
+        href: 'https://undraw.co/',
+        type: 'resource',
+      },
+      {
+        label: 'Certificate',
+        href: 'https://drive.google.com/file/d/1doWyt9WlgzeXnfdfKKHyGShRmArM4xPk/view?usp=drivesdk',
+        type: 'resource',
       },
     ],
     featured: false,

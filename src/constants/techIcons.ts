@@ -9,7 +9,7 @@ import githubIcon from '@/assets/icons/github.svg';
 import gsapIcon from '@/assets/icons/gsap.svg';
 import i18nextIcon from '@/assets/icons/i18next.svg';
 import laravelIcon from '@/assets/icons/laravel.svg';
-import lucideIcon from '@/assets/icons/lucide.svg';
+import laravelEchoIcon from '@/assets/icons/laravel-echo.svg';
 import motionIcon from '@/assets/icons/motion.svg';
 import nextjsIcon from '@/assets/icons/nextjs.svg';
 import prismaIcon from '@/assets/icons/prisma.svg';
@@ -30,6 +30,9 @@ import postmanIcon from '@/assets/icons/postman.svg';
 import swaggerIcon from '@/assets/icons/swagger.svg';
 import reactLeafletIcon from '@/assets/icons/react-leaflet.svg';
 import nextIntlIcon from '@/assets/icons/next-intl.svg';
+import pusherIcon from '@/assets/icons/pusher.svg';
+import resendIcon from '@/assets/icons/resend.svg';
+import kindeIcon from '@/assets/icons/kinde.svg';
 
 export const TECH_ICONS: Readonly<Record<string, StaticImageData>> = {
   'React.js': reactIcon,
@@ -58,11 +61,14 @@ export const TECH_ICONS: Readonly<Record<string, StaticImageData>> = {
   GSAP: gsapIcon,
   'React Three Fiber': threejsIcon,
   'Three.js': threejsIcon,
-  Lucide: lucideIcon,
   Postman: postmanIcon,
   Swagger: swaggerIcon,
   'React Leaflet': reactLeafletIcon,
   'next-intl': nextIntlIcon,
+  'Laravel Echo': laravelEchoIcon,
+  Pusher: pusherIcon,
+  Resend: resendIcon,
+  Kinde: kindeIcon,
 } satisfies Record<string, StaticImageData>;
 
 export function getTechIcon(label: string): StaticImageData | undefined {
