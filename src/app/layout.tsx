@@ -28,14 +28,9 @@ const raleway = Raleway({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: SITE_TITLE,
-    template: '%s | Mohammad Omar',
-  },
+  title: { default: SITE_TITLE, template: '%s | Mohammad Omar' },
   description: SITE_DESCRIPTION,
-  alternates: {
-    canonical: '/',
-  },
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     url: '/',

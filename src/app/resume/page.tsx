@@ -18,7 +18,7 @@ import {
   SKILL_GROUPS,
   type ResumeCredentialEntry,
 } from '@/constants/resume';
-import { SITE_NAME } from '@/constants/siteConfig';
+import { RESUME_OG_IMAGE, SITE_NAME } from '@/constants/siteConfig';
 
 const PAGE_DESCRIPTION =
   'Resume of Mohammad Omar — frontend engineer specializing in React and TypeScript architecture for complex, data-intensive products.';
@@ -26,14 +26,13 @@ const PAGE_DESCRIPTION =
 export const metadata: Metadata = {
   title: 'Resume',
   description: PAGE_DESCRIPTION,
-  alternates: {
-    canonical: '/resume',
-  },
+  alternates: { canonical: '/resume' },
   openGraph: {
     type: 'website',
     url: '/resume',
     title: `Resume | ${SITE_NAME}`,
     description: PAGE_DESCRIPTION,
+    images: [RESUME_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',

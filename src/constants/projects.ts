@@ -70,6 +70,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'demo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-intellipharma.jpg',
+      alt: 'Pharmaceutical operations dashboards, route planning, and field-team tracking interfaces.',
+    },
     featured: true,
   },
   {
@@ -98,6 +102,10 @@ export const PROJECTS: readonly Project[] = [
       'Directed a transparent AI-assisted workflow — owning requirements, architecture, UI iteration, code review, and final delivery.',
     ],
     links: [],
+    cover: {
+      src: '/open-graph/cover-snipergames.jpg',
+      alt: 'Gaming lounge session management screens with live pricing and active game sessions.',
+    },
     featured: true,
   },
   {
@@ -136,6 +144,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-casecobra.jpg',
+      alt: 'Custom product builder with live preview and checkout screens.',
+    },
     featured: true,
   },
   {
@@ -187,6 +199,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-ouzoun.jpg',
+      alt: 'Dental clinic administration dashboards with operational data and connected workflows.',
+    },
     featured: true,
   },
   {
@@ -224,6 +240,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-fizzi.jpg',
+      alt: 'Interactive soda product experience with 3D product visuals and animated layouts.',
+    },
     featured: false,
   },
   {
@@ -262,6 +282,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-weatherly.jpg',
+      alt: 'Forecast dashboard with weather metrics, charts, and location-based views.',
+    },
     featured: false,
   },
   {
@@ -311,6 +335,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-balagh.jpg',
+      alt: 'Complaint management workspace with statistics, employee tools, and case workflows.',
+    },
     featured: false,
   },
   {
@@ -358,6 +386,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-novabank.jpg',
+      alt: 'Banking dashboards with account views, role-based management, and transaction interfaces.',
+    },
     featured: false,
   },
   {
@@ -394,6 +426,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'repo',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-stacked.jpg',
+      alt: 'Animated grid search visualization showing algorithm exploration and pathfinding states.',
+    },
     featured: false,
   },
   {
@@ -439,6 +475,10 @@ export const PROJECTS: readonly Project[] = [
         type: 'resource',
       },
     ],
+    cover: {
+      src: '/open-graph/cover-skillnest.jpg',
+      alt: 'Course browsing, learning content, and shopping cart interfaces for an online education platform.',
+    },
     featured: false,
   },
 ] as const satisfies readonly Project[];
