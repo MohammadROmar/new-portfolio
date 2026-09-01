@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: '/projects',
+    siteName: SITE_NAME,
     title: `Projects | ${SITE_NAME}`,
     description: PAGE_DESCRIPTION,
     images: [PROJECTS_OG_IMAGE],
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `Projects | ${SITE_NAME}`,
     description: PAGE_DESCRIPTION,
+    images: [PROJECTS_OG_IMAGE],
   },
 };
 

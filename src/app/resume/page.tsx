@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: '/resume',
+    siteName: SITE_NAME,
     title: `Resume | ${SITE_NAME}`,
     description: PAGE_DESCRIPTION,
     images: [RESUME_OG_IMAGE],
@@ -38,6 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `Resume | ${SITE_NAME}`,
     description: PAGE_DESCRIPTION,
+    images: [RESUME_OG_IMAGE],
   },
 };
 
