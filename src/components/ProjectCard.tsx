@@ -15,7 +15,12 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const { slug, title, tagline, stack, cover, featured } = project;
 
   return (
-    <div className="group bg-surface hover:border-primary/25 hover:bg-surface-raised/40 relative isolate flex size-full h-full flex-col overflow-hidden rounded-[28px] border border-white/15 transition-colors duration-200">
+    <div
+      className={cn(
+        'group bg-surface hover:border-primary/25 hover:bg-surface-raised/40 relative isolate flex size-full h-full flex-col overflow-hidden rounded-[28px] border border-white/15 transition-colors duration-200',
+        'focus-within:outline-primary/70 focus-within:outline-2 focus-within:outline-offset-2',
+      )}
+    >
       <GlowLine />
 
       {cover ? (
@@ -46,7 +51,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         <h3 className="font-title mt-3 text-2xl leading-tight font-semibold tracking-[-0.03em] text-balance">
           <Link
             href={`/projects/${slug}`}
-            className="text-foreground focus-visible:outline-focus outline-none focus-visible:outline-2 focus-visible:outline-offset-4"
+            className="text-foreground outline-none"
           >
             <span aria-hidden="true" className="absolute inset-0 z-1" />
             {title}
