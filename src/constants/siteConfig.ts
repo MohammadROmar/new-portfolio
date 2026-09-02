@@ -28,3 +28,22 @@ export const RESUME_OG_IMAGE = {
   height: 630,
   alt: `Resume — ${SITE_NAME}`,
 } as const;
+
+export const PERSON_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE_NAME,
+  url: SITE_URL,
+  jobTitle: 'Frontend Engineer',
+  sameAs: [
+    'https://github.com/MohammadROmar',
+    'https://linkedin.com/in/mohammad-r-omar',
+  ],
+};
+
+export const WEBSITE_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+};
