@@ -21,6 +21,8 @@ const sansation = Sansation({
   subsets: ['latin'],
   weight: ['400', '700'],
   preload: true,
+  adjustFontFallback: false,
+  fallback: ['Arial', 'sans-serif'],
 });
 
 const raleway = Raleway({
@@ -59,6 +61,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${sansation.variable} ${raleway.variable} bg-background scroll-smooth motion-reduce:scroll-auto`}
     >
       <body className="bg-background text-foreground selection:bg-primary/30 selection:text-foreground flex min-h-dvh flex-col antialiased">

@@ -4,7 +4,7 @@ import { motion, useReducedMotion, type Variants } from 'motion/react';
 
 import { cn } from '@/lib/cn';
 import { ProjectCard } from '@/components/ProjectCard';
-import type { Project } from '@/constants/projects';
+import type { ProjectSummary } from '@/constants/projects';
 
 const CONTAINER_VARIANTS: Variants = {
   hidden: {},
@@ -32,7 +32,7 @@ const ITEM_VARIANTS: Variants = {
 };
 
 type ProjectsGridProps = {
-  projects: readonly Project[];
+  projects: readonly ProjectSummary[];
   columns?: 1 | 2;
   priority?: boolean;
   className?: string;

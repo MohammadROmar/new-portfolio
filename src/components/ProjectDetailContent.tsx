@@ -15,7 +15,7 @@ import { SectionHeading } from '@/components/Section';
 import { BorderGlow } from '@/components/BorderGlow';
 import { GlowLine } from '@/components/GlowLine';
 import { TechStackList } from '@/components/TechStackList';
-import type { Project } from '@/constants/projects';
+import type { ProjectCaseStudy, ProjectSummary } from '@/constants/projects';
 import { SIGNATURE_CARD_GLOW_PROPS } from '@/constants/borderGlow';
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -61,9 +61,9 @@ const COVER_VARIANTS: Variants = {
 };
 
 type ProjectDetailContentProps = {
-  project: Project;
-  previous: Project | null;
-  next: Project | null;
+  project: ProjectCaseStudy;
+  previous: ProjectSummary | null;
+  next: ProjectSummary | null;
 };
 
 export function ProjectDetailContent({

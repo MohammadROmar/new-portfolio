@@ -5,7 +5,7 @@ import { ProjectDetailContent } from '@/components/ProjectDetailContent';
 import {
   getAdjacentProjects,
   getProjectBySlug,
-  PROJECTS,
+  getProjectSlugs,
   PROJECT_COVER_HEIGHT,
   PROJECT_COVER_WIDTH,
 } from '@/constants/projects';
@@ -14,7 +14,7 @@ import { DEFAULT_OG_IMAGE, SITE_NAME } from '@/constants/siteConfig';
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return PROJECTS.map((project) => ({ slug: project.slug }));
+  return getProjectSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({

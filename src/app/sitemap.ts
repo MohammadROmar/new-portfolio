@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-import { PROJECTS } from '@/constants/projects';
+import { getProjectSlugs } from '@/constants/projects';
 import { SITE_URL } from '@/constants/siteConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -27,12 +27,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const projectRoutes: MetadataRoute.Sitemap = PROJECTS.map((project) => ({
-    url: `${SITE_URL}/projects/${project.slug}`,
-    lastModified,
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }));
+  const projectRoutes: MetadataRoute.Sitemap = getProjectSlugs().map(
+    (slug) => ({
+      url: `${SITE_URL}/projects/${slug}`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }),
+  );
 
   return [...staticRoutes, ...projectRoutes];
 }

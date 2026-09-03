@@ -6,7 +6,7 @@ import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 
 import githubIcon from '@/assets/icons/github.svg';
-import type { Project } from '@/constants/projects';
+import type { ProjectSummary } from '@/constants/projects';
 
 const CONTAINER_VARIANTS: Variants = {
   hidden: {},
@@ -34,7 +34,7 @@ const ITEM_VARIANTS: Variants = {
 };
 
 type OtherProjectsListProps = {
-  projects: readonly Project[];
+  projects: readonly ProjectSummary[];
   className?: string;
 };
 

@@ -5,11 +5,11 @@ import { ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/cn';
 import { GlowLine } from '@/components/GlowLine';
 import { TechStackList } from '@/components/TechStackList';
-import type { Project } from '@/constants/projects';
+import type { ProjectSummary } from '@/constants/projects';
 
 const STACK_PREVIEW_COUNT = 4;
 
-type ProjectCardProps = { project: Project; priority?: boolean };
+type ProjectCardProps = { project: ProjectSummary; priority?: boolean };
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const { slug, title, tagline, stack, cover, featured } = project;
