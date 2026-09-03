@@ -14,7 +14,7 @@ export const RESUME_ROLE =
   'Frontend Engineer | React, TypeScript & Scalable Architecture';
 
 export const RESUME_SUMMARY =
-  'Frontend Engineer specializing in React and TypeScript architecture for complex, data-intensive products. Built the frontend foundation of IntelliPharma, a bilingual pharmaceutical ERP/CRM spanning 1,100+ source files, 21 domain entities, 60 feature slices, and 67 route-level pages. Strong in Feature-Sliced Design, typed API boundaries, TanStack Query data orchestration, role-based access control, resilient session management, real-time workflows, and performance-focused UI delivery. Comfortable owning a project end-to-end — from requirements and architecture through critical code review, debugging, optimization, validation, and production delivery.';
+  'Frontend Engineer specializing in React and TypeScript architecture for complex, data-intensive products. Built the frontend foundation of IntelliPharma, a bilingual pharmaceutical ERP/CRM spanning 1,100+ source files, 21 domain entities, 60 feature slices, and 67 route-level pages, as the sole frontend engineer on a five-person team. Strong in Feature-Sliced Design, typed API boundaries, TanStack Query data orchestration, role-based access control, resilient session management, real-time workflows, and performance-focused UI delivery. Comfortable owning a project end-to-end - from requirements and architecture through critical code review, debugging, optimization, validation, and production delivery.';
 
 export type ResumeContact = {
   icon: IconComponent;
@@ -44,13 +44,13 @@ export const RESUME_CONTACTS: readonly ResumeContact[] = [
   {
     icon: GithubIcon,
     label: 'GitHub',
-    value: 'MohammadROmar',
+    value: 'GitHub: MohammadROmar',
     href: 'https://github.com/MohammadROmar',
   },
   {
     icon: LinkedinIcon,
     label: 'LinkedIn',
-    value: 'Mohammad R. Omar',
+    value: 'LinkedIn: Mohammad Omar',
     href: 'https://linkedin.com/in/mohammad-r-omar',
   },
 ] as const satisfies readonly ResumeContact[];
@@ -64,8 +64,8 @@ export const SKILL_GROUPS: readonly SkillGroup[] = [
   {
     label: 'Core',
     skills: [
-      'JavaScript',
       'TypeScript',
+      'JavaScript',
       'React.js',
       'Next.js',
       'HTML5',
@@ -153,14 +153,15 @@ export const RESUME_EXPERIENCE: readonly ResumeExperienceEntry[] = [
     slug: 'intellipharma',
     category: 'selected',
     context: 'Graduation project · Team of 5',
-    period: 'Jan 2026 - Aug 2026',
+    period: 'November 2025 - August 2026',
     highlights: [
       'Architected a strict Feature-Sliced Design codebase across app, pages, features, entities, shared, and widgets layers, keeping dependency direction explicit across 1,100+ source files.',
-      'Designed a two-layer data architecture: a typed Axios apiClient with interceptor-normalized ApiResponse<T> and localized ApiError handling, plus reusable TanStack Query hooks for Suspense reads, infinite lists, and CRUD mutations with domain query keys, language-aware caching, and centralized side effects.',
-      'Implemented backend-authoritative RBAC from session state through permission parsing, protected routes and direct URLs, permission-aware navigation, and capability-driven UI that fails closed when access is missing.',
+      'Designed a two-layer data architecture: a typed Axios apiClient with interceptor-normalized ApiResponse<T> and localized ApiError handling, plus reusable TanStack Query hooks for Suspense reads, infinite lists, and CRUD mutations with domain query keys, language-aware caching, and centralized side effects, powering data fetching across all 60 feature slices.',
+      'Implemented backend-authoritative RBAC from session state through permission parsing, protected routes and direct URLs, permission-aware navigation, and capability-driven UI that fails closed when access is missing, securing all 67 route-level pages.',
       'Integrated and validated a real-time field-team tracking client over authenticated Laravel Reverb channels, reconciling an initial REST snapshot with timestamped WebSocket events in a normalized external store; coalesced bursts and modeled stale-data and connection states.',
       'Engineered a reliable push-notification lifecycle with backend-confirmed, user-scoped token fingerprints, cross-tab locking, bounded retry and recovery, idempotent message handling, and service-worker delivery synchronized with Redux and TanStack Query state.',
-      'Engineered cross-tab authentication as a concurrency system: serialized rotating refresh-token exchanges with Web Locks, coalesced simultaneous in-tab refreshes through promise sharing, and propagated login, refresh, and logout through BroadcastChannel to keep Redux session state consistent across open tabs and prevent refresh races or false session expiry.',
+      'Engineered cross-tab authentication as a concurrency system - serialized rotating refresh-token exchanges with Web Locks and coalesced simultaneous in-tab refreshes through promise sharing.',
+      'Propagated login, refresh, and logout across tabs via BroadcastChannel, keeping Redux session state consistent and preventing refresh races or false session expiry.',
       'Built the UI layer of an in-app AI assistant: a chat interface with persisted, searchable conversation history and session retrieval, consuming backend-proxied Gemini API responses with no model credentials exposed client-side.',
     ],
   },
@@ -168,10 +169,11 @@ export const RESUME_EXPERIENCE: readonly ResumeExperienceEntry[] = [
     slug: 'sniper-games',
     category: 'experience',
     context: 'Freelance product developer',
-    period: 'August 2026',
+    period: 'July 2026 - August 2026',
     highlights: [
-      'Delivered an offline-first Arabic RTL application for managing timed and open-ended PC and PlayStation sessions, with configurable pricing, live cost calculation, warnings, summaries, persistent local data, and automatic timeout finalization.',
-      'Owned the project end-to-end for the customer — requirements, product and architecture decisions, UI iteration, code review, debugging, performance optimization, validation, and final delivery.',
+      'Delivered an offline-first Arabic RTL application for managing timed and open-ended PC and PlayStation sessions, with fully configurable stations and pricing, live cost calculation, warnings, summaries, and automatic timeout finalization.',
+      "Replaced the client's manual, MS Word-based session tracking with the app - currently running up to 8 PC and 2 PlayStation stations in continuous daily use since launch.",
+      'Owned the project end-to-end for the customer - requirements, product and architecture decisions, UI iteration shaped by live client feedback, debugging, performance optimization, and delivery.',
     ],
   },
   {
@@ -181,13 +183,6 @@ export const RESUME_EXPERIENCE: readonly ResumeExperienceEntry[] = [
     highlights: [
       'Built an administration platform for dental operations, tools, implants, assistants, and analytics, integrating an ASP.NET backend with two Flutter mobile applications.',
       'Implemented real-time notifications, role-based administration, and interactive analytics dashboards to support connected clinic workflows.',
-    ],
-  },
-  {
-    slug: 'casecobra',
-    category: 'additional',
-    highlights: [
-      'Developed an end-to-end customization and checkout flow with image upload, live product preview, persisted product configuration, database integration, and secure Stripe payments.',
     ],
   },
   {
@@ -215,15 +210,16 @@ export type ResumeCredentialEntry = {
 export const EDUCATION_ENTRY: ResumeCredentialEntry = {
   title: 'Information Technology Engineering',
   accent: 'Software Engineering Specialization',
-  subtitle: 'Damascus University · Fifth year',
-  meta: 'Expected 2026',
+  subtitle: 'Damascus University · Coursework and final exams complete',
+  meta: 'Expected Spring 2027',
 };
 
 export const CERTIFICATION_ENTRY: ResumeCredentialEntry = {
   title: 'Frontend Development Track',
   accent: 'Prokaders',
-  subtitle: 'Certificate of Attendance',
-  meta: '16 hours of online training',
+  subtitle:
+    'Certificate - awarded for delivering a capstone project to written specification',
+  meta: '16-hour training track',
 };
 
 export const RESUME_LANGUAGES = 'Arabic — Native · English — Fluent';
