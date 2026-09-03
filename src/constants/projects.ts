@@ -83,8 +83,8 @@ export const PROJECTS: readonly Project[] = [
       'An offline-first PWA for running a gaming lounge, delivered through a transparent AI-assisted workflow.',
     role: 'Freelance product developer',
     description: [
-      'Sniper Games manages timed and open-ended PC and PlayStation sessions for a gaming lounge, with configurable pricing, live cost calculation, and automatic timeout finalization — all working offline-first with persistent local data.',
-      'I directed the project end to end: requirements, product and architecture decisions, UI iteration, and a transparent AI-assisted build the client could follow and trust, including generated-code review, debugging, and performance validation before delivery.',
+      "Sniper Games replaces a gaming lounge's manual, MS Word–based session tracking — previously two separate tables, one for PCs and one for PlayStations — with an offline-first PWA managing timed and open-ended sessions. Stations and pricing are fully configurable, so the client can add, remove, or edit any PC or PlayStation station on the fly, alongside live cost calculation and automatic timeout finalization, all working offline with persisted local data.",
+      "I directed the project end to end: requirements, product and architecture decisions, UI iteration shaped by direct client feedback, and a transparent AI-assisted build the client could follow and trust, including generated-code review, debugging, and performance validation before delivery. It's been in continuous daily use since launch, currently running up to 8 PC and 2 PlayStation stations.",
     ],
     stack: [
       'React.js',
@@ -97,9 +97,9 @@ export const PROJECTS: readonly Project[] = [
       'Vite',
     ],
     highlights: [
-      'Delivered an offline-first Arabic RTL application for managing timed and open-ended PC and PlayStation sessions.',
-      'Built configurable pricing with live cost calculation, warnings, summaries, and automatic timeout finalization.',
-      'Directed a transparent AI-assisted workflow — owning requirements, architecture, UI iteration, code review, and final delivery.',
+      "Replaced a gaming lounge's manual, MS Word–based session tracking with an offline-first PWA — in continuous daily use since launch, currently running up to 8 PC and 2 PlayStation stations.",
+      'Built fully configurable stations and pricing — add, remove, or edit any station on the fly — with live cost calculation, warnings, summaries, and automatic timeout finalization.',
+      'Directed a transparent AI-assisted workflow — owning requirements, architecture, UI iteration shaped by direct client feedback, code review, and final delivery.',
     ],
     links: [],
     cover: {
@@ -436,14 +436,15 @@ export const PROJECTS: readonly Project[] = [
     slug: 'skillnest',
     title: 'SkillNest',
     tagline:
-      'An educational platform with course browsing, cart, and simulated auth — built as a Prokaders training project.',
-    role: 'Training project',
+      'An educational platform with course browsing, cart, and simulated auth — the certification capstone for a Prokaders training track.',
+    role: 'Certification project',
     description: [
-      'SkillNest simulates an online learning platform: browsing courses with pagination, viewing course details, and managing a cart, with a login simulation that gates cart actions without a real backend.',
-      'Built during a 16-hour frontend development track at Prokaders, it follows modern React practices — Context and useReducer for cart and auth state, React Router v6 with nested and lazy-loaded routes, and persisted state via localStorage.',
+      'SkillNest was the completion deliverable for a Prokaders frontend certificate: built after the training track ended, against a written specification the program provided, with the certificate awarded only to those who completed it. It simulates an online learning platform — browsing courses with pagination, viewing course details, and managing a cart, with a login simulation that gates cart actions without a real backend.',
+      'The UI was implemented from a mockup largely generated with Google Stitch, with the frontend logic built independently — Context and useReducer for cart and auth state, React Router v6 with nested and lazy-loaded routes, and persisted state via localStorage — then submitted via GitHub with a live deploy, against a set deadline.',
     ],
     stack: ['React.js', 'React Router', 'TypeScript', 'Tailwind CSS', 'Vite'],
     highlights: [
+      'Built after training as the graded capstone for a Prokaders certificate — implemented to a written specification and delivered via GitHub with a live deploy, against a deadline.',
       'Implemented course browsing with pagination, detail pages, and full cart management (add, remove, clear).',
       'Simulated authentication state with React Context and useReducer, persisting cart and login state to localStorage.',
       'Built nested, lazy-loaded routing with React Router v6 for a clean, scalable navigation structure.',
