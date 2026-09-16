@@ -14,6 +14,7 @@ import githubIcon from '@/assets/icons/github.svg';
 import { SectionHeading } from '@/components/Section';
 import { BorderGlow } from '@/components/BorderGlow';
 import { GlowLine } from '@/components/GlowLine';
+import { ProjectGallery } from '@/components/ProjectGallery';
 import { TechStackList } from '@/components/TechStackList';
 import type { ProjectCaseStudy, ProjectSummary } from '@/constants/projects';
 import { SIGNATURE_CARD_GLOW_PROPS } from '@/constants/borderGlow';
@@ -218,6 +219,12 @@ export function ProjectDetailContent({
           </aside>
         </BorderGlow>
       </motion.div>
+
+      {project.gallery && project.gallery.length > 0 ? (
+        <motion.div variants={ITEM_VARIANTS} className="mt-12 sm:mt-16">
+          <ProjectGallery images={project.gallery} title={project.title} />
+        </motion.div>
+      ) : null}
 
       {previous || next ? (
         <motion.nav

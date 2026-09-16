@@ -24,6 +24,7 @@ export const sniperGamesProject: ProjectCaseStudy = {
     "Replaced a gaming lounge's manual, MS Word–based session tracking with an offline-first PWA — in continuous daily use since launch, currently running up to 8 PC and 2 PlayStation stations.",
     'Built fully configurable stations and pricing — add, remove, or edit any station on the fly — with live cost calculation, warnings, summaries, and automatic timeout finalization.',
     'Directed a transparent AI-assisted workflow — owning requirements, architecture, UI iteration shaped by direct client feedback, code review, and final delivery.',
+    "Considered and deliberately left out local-network device control (locking or disconnecting a station over the shop's LAN) — a technically interesting idea the client never actually asked for, so it stayed out of the build.",
   ],
   links: [],
   cover: {
