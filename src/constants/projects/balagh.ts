@@ -33,7 +33,7 @@ export const balaghProject: ProjectCaseStudy = {
     },
     {
       label: 'Frontend repo',
-      href: 'https://github.com/MohammadROmar/balagh/',
+      href: 'https://github.com/MohammadROmar/balagh',
       type: 'repo',
     },
     {
@@ -51,5 +51,39 @@ export const balaghProject: ProjectCaseStudy = {
     src: '/open-graph/cover-balagh.jpg',
     alt: 'Complaint management workspace with statistics, employee tools, and case workflows.',
   },
+  gallery: [
+    {
+      src: '/projects/balagh/login.jpg',
+      alt: "Balagh's Arabic RTL login screen for the government complaint-management dashboard.",
+    },
+    {
+      src: '/projects/balagh/reports-analytics.jpg',
+      alt: 'Reports and analytics view filtering complaints by status with percentage breakdowns.',
+    },
+    {
+      src: '/projects/balagh/complaints-list-admin-ar.jpg',
+      alt: 'Arabic RTL admin view of complaint cards showing status, submitter, and location.',
+    },
+    {
+      src: '/projects/balagh/complaints-list-employee.jpg',
+      alt: 'Employee view of assigned and available complaints, without the admin sidebar.',
+    },
+    {
+      src: '/projects/balagh/complaint-detail-info-ar.jpg',
+      alt: 'Arabic RTL complaint detail page with submission info, status actions, and an attached photo.',
+    },
+    {
+      src: '/projects/balagh/complaint-detail-history-ar.jpg',
+      alt: 'Complaint detail page scrolled to documents, notes, and a full status-history timeline.',
+    },
+    {
+      src: '/projects/balagh/complaint-detail-locked-by-employee.jpg',
+      alt: 'Complaint detail page showing a complaint locked and being processed by an employee, with a Proceed action.',
+    },
+    {
+      src: '/projects/balagh/register-employee-form.jpg',
+      alt: 'Add New Employee form with contact info, government entity, and password requirements.',
+    },
+  ],
   featured: false,
 };
