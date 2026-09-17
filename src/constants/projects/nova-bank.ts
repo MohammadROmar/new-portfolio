@@ -49,5 +49,43 @@ export const novaBankProject: ProjectCaseStudy = {
     src: '/open-graph/cover-novabank.jpg',
     alt: 'Banking dashboards with account views, role-based management, and transaction interfaces.',
   },
+  gallery: [
+    {
+      src: '/projects/nova-bank/login.jpg',
+      alt: 'NovaBank login screen with a dark hero panel welcoming administrators.',
+    },
+    {
+      src: '/projects/nova-bank/accounts-list.jpg',
+      alt: 'Accounts list with balances, types, and status badges for each bank account.',
+    },
+    {
+      src: '/projects/nova-bank/account-detail.jpg',
+      alt: 'Account detail page with balance, actions, and a list of child accounts.',
+    },
+    {
+      src: '/projects/nova-bank/create-account-form.jpg',
+      alt: 'Create New Account form with account-type selection cards.',
+    },
+    {
+      src: '/projects/nova-bank/update-account-form.jpg',
+      alt: 'Update Account form for changing account type and account state.',
+    },
+    {
+      src: '/projects/nova-bank/transactions-list.jpg',
+      alt: 'Transactions list showing deposit amounts and approval status.',
+    },
+    {
+      src: '/projects/nova-bank/transaction-detail.jpg',
+      alt: 'Transaction detail page with amount, type, and a status-change control.',
+    },
+    {
+      src: '/projects/nova-bank/deposit-form.jpg',
+      alt: 'Deposit form showing available balance and the projected balance after the transaction.',
+    },
+    {
+      src: '/projects/nova-bank/register-manager-form.jpg',
+      alt: 'Register Manager form with password-strength requirements.',
+    },
+  ],
   featured: false,
 };
