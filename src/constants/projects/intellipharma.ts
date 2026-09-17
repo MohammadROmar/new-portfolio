@@ -47,16 +47,89 @@ export const intellipharmaProject: ProjectCaseStudy = {
       href: 'https://intelli-pharma.limebyte.org/',
       type: 'demo',
     },
+    {
+      label: "Project's report",
+      href: 'https://drive.google.com/file/d/1deOIzZDuhNKYbzxda7qESeOgyTWtwkrl/view?usp=drivesdk',
+      type: 'demo',
+    },
   ],
   cover: {
     src: '/open-graph/cover-intellipharma.jpg',
     alt: 'Pharmaceutical operations dashboards, route planning, and field-team tracking interfaces.',
   },
   gallery: [
-    { src: '/open-graph/cover-balagh.jpg', alt: '' },
-    { src: '/open-graph/cover-intellipharma.jpg', alt: '' },
-    { src: '/open-graph/cover-skillnest.jpg', alt: '' },
-    { src: '/open-graph/cover-ouzoun.jpg', alt: '' },
+    {
+      src: '/projects/intellipharma/login.png',
+      alt: "IntelliPharma's Arabic RTL login screen on a dark, dotted-grid background.",
+    },
+    {
+      src: '/projects/intellipharma/overview-dashboard-ar.jpg',
+      alt: 'Arabic RTL admin overview dashboard with delivery, staff, and order stats plus a request trend chart.',
+    },
+    {
+      src: '/projects/intellipharma/smart-assistant-chat.jpg',
+      alt: 'AI assistant chat panel for asking natural-language questions about pharmacies and orders.',
+    },
+    {
+      src: '/projects/intellipharma/create-order-details.jpg',
+      alt: 'First step of order creation: selecting the destination pharmacy and warehouse.',
+    },
+    {
+      src: '/projects/intellipharma/create-order-medicines.jpg',
+      alt: 'Second step of order creation: searching the medicine catalog and building the order cart.',
+    },
+    {
+      src: '/projects/intellipharma/order-detail.jpg',
+      alt: 'Purchase order detail page with line items, financial summary, and order context.',
+    },
+    {
+      src: '/projects/intellipharma/debts-list.jpg',
+      alt: 'Pharmacy debts overview with total balance, collection progress, and a filterable debt-account list.',
+    },
+    {
+      src: '/projects/intellipharma/debt-detail.jpg',
+      alt: 'Single pharmacy debt detail page with payment history and contributing orders.',
+    },
+    {
+      src: '/projects/intellipharma/delivery-detail.jpg',
+      alt: 'Delivery record detail page with order items, timeline, and required collection amount.',
+    },
+    {
+      src: '/projects/intellipharma/medicine-form.jpg',
+      alt: 'Add New Medicine form with bilingual naming, pricing, warehouse stock, and product photos.',
+    },
+    {
+      src: '/projects/intellipharma/notifications.jpg',
+      alt: 'Notification center listing stock-expiry alerts.',
+    },
+    {
+      src: '/projects/intellipharma/pharmacies-list.jpg',
+      alt: 'Paginated list of registered pharmacies with region, pharmacist, and status columns.',
+    },
+    {
+      src: '/projects/intellipharma/route-plan-detail.jpg',
+      alt: 'Route plan detail with an interactive map showing planned stops and visit progress.',
+    },
+    {
+      src: '/projects/intellipharma/visit-detail.jpg',
+      alt: "A rep's visit list with a selected visit's completion status and service-time details.",
+    },
+    {
+      src: '/projects/intellipharma/profile-permissions.jpg',
+      alt: 'Admin profile page listing the assigned role and detailed granted permissions.',
+    },
+    {
+      src: '/projects/intellipharma/create-role-form.jpg',
+      alt: 'Create Role form with a role name field and a searchable permissions list.',
+    },
+    {
+      src: '/projects/intellipharma/role-permissions-matrix.jpg',
+      alt: 'Expanded permissions matrix across ERP and Planner modules for a new role.',
+    },
+    {
+      src: '/projects/intellipharma/sales-targets.jpg',
+      alt: 'Sales Targets page showing yearly, quarterly, and monthly quota cards.',
+    },
   ],
   featured: true,
 };
