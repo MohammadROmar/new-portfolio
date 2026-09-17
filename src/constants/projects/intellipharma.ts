@@ -59,7 +59,7 @@ export const intellipharmaProject: ProjectCaseStudy = {
   },
   gallery: [
     {
-      src: '/projects/intellipharma/login.png',
+      src: '/projects/intellipharma/login.jpg',
       alt: "IntelliPharma's Arabic RTL login screen on a dark, dotted-grid background.",
     },
     {
