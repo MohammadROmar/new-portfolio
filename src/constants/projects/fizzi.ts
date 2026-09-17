@@ -39,5 +39,39 @@ export const fizziProject: ProjectCaseStudy = {
     src: '/open-graph/cover-fizzi.jpg',
     alt: 'Interactive soda product experience with 3D product visuals and animated layouts.',
   },
+  gallery: [
+    {
+      src: '/projects/fizzi/hero.jpg',
+      alt: 'Fizzi landing page hero with two soda cans and a "Live Gutsy" headline.',
+    },
+    {
+      src: '/projects/fizzi/five-flavors-section.jpg',
+      alt: 'Section showcasing all five Fizzi flavors arranged together.',
+    },
+    {
+      src: '/projects/fizzi/scroll-dive-better.jpg',
+      alt: 'A 3D scroll animation of a rotating can revealing the word "BETTER".',
+    },
+    {
+      src: '/projects/fizzi/scroll-dive-health.jpg',
+      alt: 'A 3D scroll animation of a rotating can showing nutrition facts and the word "HEALTH".',
+    },
+    {
+      src: '/projects/fizzi/flavor-carousel.jpg',
+      alt: 'Flavor picker carousel showing the Grape Goodness can and its price.',
+    },
+    {
+      src: '/projects/fizzi/gut-friendly-section.jpg',
+      alt: "Alternating content section describing the soda's prebiotics and probiotics.",
+    },
+    {
+      src: '/projects/fizzi/light-calories-section.jpg',
+      alt: 'Alternating content section highlighting low calories and bold flavor.',
+    },
+    {
+      src: '/projects/fizzi/natural-ingredients-section.jpg',
+      alt: 'Alternating content section describing natural, artificial-sweetener-free ingredients.',
+    },
+  ],
   featured: false,
 };
