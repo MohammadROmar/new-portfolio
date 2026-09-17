@@ -92,10 +92,7 @@ export function Section({
       {...props}
       id={id}
       aria-labelledby={headingId}
-      className={cn(
-        'scroll-mt-28 px-5 py-24 sm:py-28 md:px-6 lg:px-10 lg:py-32',
-        className,
-      )}
+      className={cn('px-5 py-24 sm:py-28 md:px-6 lg:px-10 lg:py-32', className)}
     >
       <div className={cn('mx-auto w-full max-w-7xl', containerClassName)}>
         <SectionHeading

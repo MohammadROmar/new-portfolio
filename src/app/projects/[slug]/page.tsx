@@ -72,7 +72,7 @@ export default async function ProjectPage({
   const { previous, next } = getAdjacentProjects(slug);
 
   return (
-    <article className="scroll-mt-28 px-5 py-24 sm:py-28 md:px-6 lg:px-10 lg:py-32">
+    <article className="px-5 py-24 sm:py-28 md:px-6 lg:px-10 lg:py-32">
       <div className="mx-auto w-full max-w-7xl">
         <ProjectDetailContent
           project={project}
