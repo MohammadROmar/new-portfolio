@@ -40,5 +40,51 @@ export const casecobraProject: ProjectCaseStudy = {
     src: '/open-graph/cover-casecobra.jpg',
     alt: 'Custom product builder with live preview and checkout screens.',
   },
+  gallery: [
+    {
+      src: '/projects/casecobra/hero.jpg',
+      alt: 'Casecobra landing page hero with a custom phone case preview and a "Custom Phone Case" headline.',
+    },
+    {
+      src: '/projects/casecobra/landing-product-grid.jpg',
+      alt: 'Grid of custom phone case designs on the Casecobra landing page, labeled "What people are buying".',
+    },
+    {
+      src: '/projects/casecobra/upload-image.jpg',
+      alt: 'Step 1 of the case builder: uploading a photo for the custom case.',
+    },
+    {
+      src: '/projects/casecobra/customize-case.jpg',
+      alt: 'Step 2 of the case builder: choosing case color, iPhone model, material, and finish.',
+    },
+    {
+      src: '/projects/casecobra/order-summary.jpg',
+      alt: 'Case order summary with pricing breakdown and a checkout button.',
+    },
+    {
+      src: '/projects/casecobra/login-required-modal.jpg',
+      alt: 'Login-required modal prompting sign-in to complete a saved case order.',
+    },
+    {
+      src: '/projects/casecobra/login.jpg',
+      alt: 'Login screen with Google sign-in and email continue options.',
+    },
+    {
+      src: '/projects/casecobra/stripe-checkout.jpg',
+      alt: 'Stripe checkout form for shipping details and card payment.',
+    },
+    {
+      src: '/projects/casecobra/order-confirmation.jpg',
+      alt: 'Order confirmation page thanking the customer with an order number after purchase.',
+    },
+    {
+      src: '/projects/casecobra/order-confirmation-shipping.jpg',
+      alt: 'Order confirmation details showing shipping address, payment status, and order total.',
+    },
+    {
+      src: '/projects/casecobra/seller-dashboard.jpg',
+      alt: 'Seller dashboard showing weekly and monthly sales goals and incoming orders.',
+    },
+  ],
   featured: true,
 };
