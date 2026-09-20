@@ -255,6 +255,7 @@ export function Navbar({
 
         <div className="flex shrink-0 items-center gap-2 md:gap-3">
           <motion.a
+            aria-label="GitHub profile"
             className={cn(
               'hidden h-9 items-center gap-1.5 rounded-[10px] border border-transparent px-3 md:flex',
               'bg-white/[0.035] font-mono text-[13px] font-medium text-white/80 shadow-[inset_0_0.5px_0_rgba(255,255,255,0.08)] backdrop-blur-xl',
