@@ -10,11 +10,10 @@ export const RESUME_PDF_FILENAME = 'Mohammad-Omar-Resume.pdf';
 
 export const RESUME_NAME = 'Mohammad Omar';
 
-export const RESUME_ROLE =
-  'Frontend Engineer | React, TypeScript & Scalable Architecture';
+export const RESUME_ROLE = 'Frontend Software Engineer | React & TypeScript';
 
 export const RESUME_SUMMARY =
-  'Frontend Engineer specializing in React and TypeScript architecture for complex, data-intensive products. Built the frontend foundation of IntelliPharma, a bilingual pharmaceutical ERP/CRM spanning 1,100+ source files, 21 domain entities, 60 feature slices, and 67 route-level pages, as the sole frontend engineer on a five-person team. Strong in Feature-Sliced Design, typed API boundaries, TanStack Query data orchestration, role-based access control, resilient session management, real-time workflows, and performance-focused UI delivery. Comfortable owning a project end-to-end - from requirements and architecture through critical code review, debugging, optimization, validation, and production delivery.';
+  'Frontend Developer with a software engineering foundation, building React and TypeScript products that stay maintainable, secure, and performant as they grow. Specializes in scalable frontend architecture - Feature-Sliced Design, clean-architecture principles, and design patterns - alongside data orchestration, role-based access control, and real-time systems. Works effectively in collaborative, cross-functional teams across the software development lifecycle. Equally comfortable owning a project end-to-end, from requirements and architecture decisions through performance optimization and production delivery.';
 
 export type ResumeContact = {
   icon: IconComponent;
@@ -138,7 +137,7 @@ export const SKILL_GROUPS: readonly SkillGroup[] = [
   },
 ] as const satisfies readonly SkillGroup[];
 
-export type ResumeExperienceCategory = 'selected' | 'experience' | 'additional';
+export type ResumeExperienceCategory = 'experience' | 'additional';
 
 export type ResumeExperienceEntry = {
   slug: string;
@@ -151,15 +150,16 @@ export type ResumeExperienceEntry = {
 export const RESUME_EXPERIENCE: readonly ResumeExperienceEntry[] = [
   {
     slug: 'intellipharma',
-    category: 'selected',
+    category: 'experience',
     context: 'Graduation project · Team of 5',
     period: 'November 2025 - August 2026',
     highlights: [
-      'Architected a strict Feature-Sliced Design codebase across app, pages, features, entities, shared, and widgets layers, keeping dependency direction explicit across 1,100+ source files.',
-      'Designed a two-layer data architecture: a typed Axios apiClient with interceptor-normalized ApiResponse<T> and localized ApiError handling, plus reusable TanStack Query hooks for Suspense reads, infinite lists, and CRUD mutations with domain query keys, language-aware caching, and centralized side effects, powering data fetching across all 60 feature slices.',
-      'Implemented backend-authoritative RBAC from session state through permission parsing, protected routes and direct URLs, permission-aware navigation, and capability-driven UI that fails closed when access is missing, securing all 67 route-level pages.',
+      'Architected a strict Feature-Sliced Design codebase across app, pages, features, entities, shared, and widgets layers, spanning 21 domain entities and keeping dependency direction explicit across 1,100+ source files.',
+      'Designed a typed Axios apiClient with interceptor-normalized ApiResponse<T> responses and centralized, localized ApiError handling, forming the foundation for all API communication in the app.',
+      'Developed a set of generic, reusable TanStack Query hooks in shared/model - including useSuspenseGetEntities, useCreateEntity, and useInfiniteEntities - covering Suspense reads, infinite lists, and CRUD mutations with domain-scoped query keys and language-aware caching, powering data fetching across all 60 feature slices.',
+      'Established backend-authoritative RBAC from session state through permission parsing, protected routes and direct URLs, permission-aware navigation, and capability-driven UI that fails closed when access is missing - using createSelector-memoized permission hooks backed by a ReadonlySet<Permission> for O(1) lookups in place of linear array checks - securing all 67 route-level pages.',
       'Integrated and validated a real-time field-team tracking client over authenticated Laravel Reverb channels, reconciling an initial REST snapshot with timestamped WebSocket events in a normalized external store; coalesced bursts and modeled stale-data and connection states.',
-      'Engineered a reliable push-notification lifecycle with backend-confirmed, user-scoped token fingerprints, cross-tab locking, bounded retry and recovery, idempotent message handling, and service-worker delivery synchronized with Redux and TanStack Query state.',
+      'Configured Firebase Cloud Messaging (FCM) push notifications, including device-token fingerprinting to prevent duplicate registrations and service-worker-based delivery synchronized with Redux and TanStack Query state.',
       'Engineered cross-tab authentication as a concurrency system - serialized rotating refresh-token exchanges with Web Locks and coalesced simultaneous in-tab refreshes through promise sharing.',
       'Propagated login, refresh, and logout across tabs via BroadcastChannel, keeping Redux session state consistent and preventing refresh races or false session expiry.',
       'Built the UI layer of an in-app AI assistant: a chat interface with persisted, searchable conversation history and session retrieval, consuming backend-proxied Gemini API responses with no model credentials exposed client-side.',
@@ -209,9 +209,9 @@ export type ResumeCredentialEntry = {
 
 export const EDUCATION_ENTRY: ResumeCredentialEntry = {
   title: 'Information Technology Engineering',
-  accent: 'Software Engineering Specialization',
+  accent: 'Software Engineering Specialization · Overall average: 81%',
   subtitle: 'Damascus University · Coursework and final exams complete',
-  meta: 'Expected Spring 2027',
+  meta: 'Degree conferral expected Spring 2027',
 };
 
 export const CERTIFICATION_ENTRY: ResumeCredentialEntry = {

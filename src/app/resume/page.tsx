@@ -43,9 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-const SELECTED_PROJECTS = RESUME_EXPERIENCE.filter(
-  (entry) => entry.category === 'selected',
-);
 const PROFESSIONAL_EXPERIENCE = RESUME_EXPERIENCE.filter(
   (entry) => entry.category === 'experience',
 );
@@ -80,11 +77,7 @@ export default function ResumePage() {
         <ResumeSkills groups={SKILL_GROUPS} />
       </ResumeSection>
 
-      <ResumeSection heading="Selected engineering projects">
-        <ResumeExperience entries={SELECTED_PROJECTS} />
-      </ResumeSection>
-
-      <ResumeSection heading="Professional experience">
+      <ResumeSection heading="Experience">
         <ResumeExperience entries={PROFESSIONAL_EXPERIENCE} />
       </ResumeSection>
 

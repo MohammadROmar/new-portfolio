@@ -12,6 +12,7 @@ export const intellipharmaProject: ProjectCaseStudy = {
     'I owned the frontend end to end: a strict Feature-Sliced Design codebase spanning 1,100+ source files, 21 domain entities, and 67 route-level pages.',
     'The frontend rests on a two-layer data architecture — a typed Axios client with normalized error handling, and reusable TanStack Query hooks for Suspense reads, infinite lists, and mutations. Backend-authoritative role-based access control protects routes, navigation, and UI down to individual capabilities, and a companion Flutter app and Laravel backend round out the system.',
     "The planner backs that up with real numbers: it cuts driving distance by roughly 42–54% against naive route ordering, and in a full production-pipeline test it completed 97 of 97 planning requests with no crashes or timeouts at a 5.3-second median response time. Getting there took more than model accuracy — an early version's ride-completion rate dropped from 0.90 to 0.74 under aggressive reward feedback, which is why the team built a replay-and-shadow-validation gate that can reject a bad model update outright rather than trust everything it learns.",
+    'The finished project was graded 94/100.',
   ],
   stack: [
     'React.js',
@@ -37,8 +38,9 @@ export const intellipharmaProject: ProjectCaseStudy = {
   highlights: [
     'Architected a strict Feature-Sliced Design codebase across app, pages, features, entities, shared, and widgets layers, keeping dependency direction explicit across 1,100+ source files.',
     'Designed a two-layer data architecture: a typed Axios apiClient with interceptor-normalized responses, plus reusable TanStack Query hooks for Suspense reads, infinite lists, and CRUD mutations.',
-    'Implemented backend-authoritative RBAC from session state through protected routes, permission-aware navigation, and capability-driven UI that fails closed when access is missing.',
+    'Established backend-authoritative RBAC from session state through protected routes, permission-aware navigation, and capability-driven UI that fails closed when access is missing — using memoized, Set-backed permission checks for O(1) lookups.',
     'Integrated real-time field-team tracking over authenticated WebSocket channels, reconciling REST snapshots with live location events in a normalized store.',
+    'Configured Firebase Cloud Messaging (FCM) push notifications — device-token fingerprinting and service-worker-based delivery — synced with app state.',
     'Engineered cross-tab authentication as a concurrency system — serialized token refreshes with Web Locks and propagated session state across tabs via BroadcastChannel.',
   ],
   links: [
@@ -48,9 +50,19 @@ export const intellipharmaProject: ProjectCaseStudy = {
       type: 'demo',
     },
     {
+      label: 'GitHub repo',
+      href: 'https://github.com/MohammadROmar/intellipharma',
+      type: 'repo',
+    },
+    {
       label: "Project's report",
       href: 'https://drive.google.com/file/d/1deOIzZDuhNKYbzxda7qESeOgyTWtwkrl/view?usp=drivesdk',
       type: 'demo',
+    },
+    {
+      label: 'Postman collection',
+      href: 'https://www.postman.com/gradteam-5504/graduation-public/',
+      type: 'resource',
     },
   ],
   cover: {
