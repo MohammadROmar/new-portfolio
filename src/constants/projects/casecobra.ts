@@ -87,4 +87,5 @@ export const casecobraProject: ProjectCaseStudy = {
     },
   ],
   featured: true,
+  updatedAt: '2026-09-17',
 };

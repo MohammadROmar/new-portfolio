@@ -86,4 +86,5 @@ export const balaghProject: ProjectCaseStudy = {
     },
   ],
   featured: false,
+  updatedAt: '2026-10-01',
 };

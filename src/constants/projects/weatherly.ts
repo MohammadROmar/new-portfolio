@@ -41,4 +41,5 @@ export const weatherlyProject: ProjectCaseStudy = {
     alt: 'Forecast dashboard with weather metrics, charts, and location-based views.',
   },
   featured: false,
+  updatedAt: '2026-09-04',
 };

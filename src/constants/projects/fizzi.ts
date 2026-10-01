@@ -74,4 +74,5 @@ export const fizziProject: ProjectCaseStudy = {
     },
   ],
   featured: false,
+  updatedAt: '2026-09-17',
 };

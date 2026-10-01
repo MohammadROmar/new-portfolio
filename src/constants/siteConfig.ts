@@ -1,3 +1,5 @@
+import type { IsoDate } from '@/lib/isoDate';
+
 export const SITE_NAME = 'Mohammad Omar';
 
 export const SITE_TITLE = 'Mohammad Omar - Frontend Engineer';
@@ -7,6 +9,8 @@ export const SITE_DESCRIPTION =
 export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL?.trim() || ''
 ).replace(/\/+$/, '');
+
+export const HOME_UPDATED_AT: IsoDate = '2026-10-01';
 
 export const DEFAULT_OG_IMAGE = {
   url: '/open-graph/default.jpg',

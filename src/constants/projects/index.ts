@@ -46,6 +46,12 @@ export function getProjectSlugs(): readonly string[] {
   return ALL_PROJECTS.map((project) => project.slug);
 }
 
+export type ProjectSitemapEntry = Pick<ProjectCaseStudy, 'slug' | 'updatedAt'>;
+
+export function getProjectSitemapEntries(): readonly ProjectSitemapEntry[] {
+  return ALL_PROJECTS.map(({ slug, updatedAt }) => ({ slug, updatedAt }));
+}
+
 export function getProjectBySlug(slug: string): ProjectCaseStudy | undefined {
   const index = PROJECT_INDEX_BY_SLUG.get(slug);
   return index === undefined ? undefined : ALL_PROJECTS[index];

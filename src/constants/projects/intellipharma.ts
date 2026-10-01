@@ -144,4 +144,5 @@ export const intellipharmaProject: ProjectCaseStudy = {
     },
   ],
   featured: true,
+  updatedAt: '2026-10-01',
 };

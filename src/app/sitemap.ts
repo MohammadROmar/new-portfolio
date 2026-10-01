@@ -1,40 +1,33 @@
 import type { MetadataRoute } from 'next';
 
-import { getProjectSlugs } from '@/constants/projects';
-import { SITE_URL } from '@/constants/siteConfig';
+import { getProjectSitemapEntries } from '@/constants/projects';
+import { RESUME_UPDATED_AT } from '@/constants/resume';
+import { HOME_UPDATED_AT, SITE_URL } from '@/constants/siteConfig';
+import { assertValidIsoDate, getLatestIsoDate } from '@/lib/isoDate';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const projectEntries = getProjectSitemapEntries();
+  const projectDates = projectEntries.map(({ updatedAt }) => updatedAt);
 
-  const staticRoutes: MetadataRoute.Sitemap = [
+  assertValidIsoDate(HOME_UPDATED_AT, 'HOME_UPDATED_AT');
+  assertValidIsoDate(RESUME_UPDATED_AT, 'RESUME_UPDATED_AT');
+  for (const { slug, updatedAt } of projectEntries) {
+    assertValidIsoDate(updatedAt, `updatedAt of project "${slug}"`);
+  }
+
+  return [
     {
       url: SITE_URL,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 1,
+      lastModified: getLatestIsoDate([HOME_UPDATED_AT, ...projectDates]),
     },
     {
       url: `${SITE_URL}/projects`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
+      lastModified: getLatestIsoDate(projectDates),
     },
-    {
-      url: `${SITE_URL}/resume`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-  ];
-
-  const projectRoutes: MetadataRoute.Sitemap = getProjectSlugs().map(
-    (slug) => ({
+    { url: `${SITE_URL}/resume`, lastModified: RESUME_UPDATED_AT },
+    ...projectEntries.map(({ slug, updatedAt }) => ({
       url: `${SITE_URL}/projects/${slug}`,
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    }),
-  );
-
-  return [...staticRoutes, ...projectRoutes];
+      lastModified: updatedAt,
+    })),
+  ];
 }

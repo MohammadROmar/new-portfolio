@@ -1,3 +1,5 @@
+import type { IsoDate } from '@/lib/isoDate';
+
 export type ProjectImage = { src: string; alt: string };
 
 export type ProjectLink = {
@@ -22,4 +24,5 @@ export type ProjectCaseStudy = ProjectSummary & {
   description: readonly string[];
   highlights: readonly string[];
   gallery?: readonly ProjectImage[];
+  updatedAt: IsoDate;
 };

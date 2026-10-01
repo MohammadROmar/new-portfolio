@@ -33,4 +33,5 @@ export const stackedProject: ProjectCaseStudy = {
     alt: 'Animated grid search visualization showing algorithm exploration and pathfinding states.',
   },
   featured: false,
+  updatedAt: '2026-10-01',
 };

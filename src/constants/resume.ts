@@ -3,10 +3,13 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { GithubIcon } from '@/components/GithubIcon';
 import { LinkedinIcon } from '@/components/LinkedinIcon';
 import type { IconComponent } from '@/lib/icon';
+import type { IsoDate } from '@/lib/isoDate';
 
 export const RESUME_PAGE_HREF = '/resume';
 export const RESUME_PDF_HREF = '/resume/Mohammad-Omar-Resume.pdf';
 export const RESUME_PDF_FILENAME = 'Mohammad-Omar-Resume.pdf';
+
+export const RESUME_UPDATED_AT: IsoDate = '2026-10-01';
 
 export const RESUME_NAME = 'Mohammad Omar';
 
