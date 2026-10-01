@@ -7,7 +7,7 @@ import { getFeaturedProjects, getOtherProjects } from '@/constants/projects';
 import { PROJECTS_OG_IMAGE, SITE_NAME } from '@/constants/siteConfig';
 
 const PAGE_DESCRIPTION =
-  'Selected engineering projects by Mohammad Omar — React and TypeScript products taken from architecture to production.';
+  'Selected engineering projects by Mohammad Omar - React and TypeScript products taken from architecture to production.';
 
 export const metadata: Metadata = {
   title: 'Projects',

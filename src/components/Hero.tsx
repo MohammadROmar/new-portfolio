@@ -99,7 +99,7 @@ export function Hero() {
             variants={ITEM_VARIANTS}
             className="text-foreground-soft mt-7 max-w-2xl text-base leading-7 text-pretty sm:mt-8 sm:text-lg sm:leading-8"
           >
-            I turn complex requirements into fast, accessible products—combining
+            I turn complex requirements into fast, accessible products-combining
             clean architecture, thoughtful UI, and performance that holds up in
             production.
           </motion.p>

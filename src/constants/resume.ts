@@ -222,4 +222,4 @@ export const CERTIFICATION_ENTRY: ResumeCredentialEntry = {
   meta: '16-hour training track',
 };
 
-export const RESUME_LANGUAGES = 'Arabic — Native · English — Fluent';
+export const RESUME_LANGUAGES = 'Arabic - Native · English - Fluent';

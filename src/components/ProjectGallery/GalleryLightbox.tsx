@@ -71,7 +71,7 @@ export function GalleryLightbox({
           onKeyDown={handleKeyDown}
         >
           <Dialog.Title className="sr-only">
-            {title} — image {selectedIndex + 1} of {images.length}
+            {title} - image {selectedIndex + 1} of {images.length}
           </Dialog.Title>
 
           <Dialog.Description className="sr-only">

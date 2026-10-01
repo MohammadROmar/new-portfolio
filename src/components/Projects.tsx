@@ -13,7 +13,7 @@ export function Projects() {
       id="projects"
       eyebrow="Selected work"
       title="Products, not just interfaces."
-      subtitle="Systems taken from architecture to production — solo end to end, or leading the frontend inside a team."
+      subtitle="Systems taken from architecture to production - solo end to end, or leading the frontend inside a team."
     >
       <ProjectsGrid projects={featuredProjects} columns={2} priority />
 

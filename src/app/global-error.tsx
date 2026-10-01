@@ -15,7 +15,7 @@ export default function GlobalError({ reset }: GlobalErrorProps) {
 
           <p className="text-foreground-soft mt-4 text-base leading-7 text-pretty">
             The application hit an unexpected error. Refreshing usually fixes it
-            — if it keeps happening, please check back shortly.
+            - if it keeps happening, please check back shortly.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

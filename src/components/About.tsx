@@ -63,9 +63,8 @@ export function About() {
               Based in Damascus, I specialize in React and TypeScript for
               complex, data-intensive products. My work extends from polished,
               responsive interfaces to the engineering underneath them: typed
-              API boundaries, server-state orchestration, access control,
-              real-time workflows, internationalization, and resilient session
-              management.
+              API boundaries, access control, real-time workflows,
+              internationalization, and resilient session management.
             </p>
 
             <p>
@@ -91,7 +90,7 @@ export function About() {
                 label="Education"
                 title="Information Technology Engineering"
                 description="Software Engineering specialization"
-                meta="Damascus University · Fifth year · Expected 2026"
+                meta="Damascus University · Coursework and final exams complete · Degree conferral expected Spring 2027"
               />
 
               <Credential

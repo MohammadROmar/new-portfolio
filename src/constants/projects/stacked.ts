@@ -7,7 +7,7 @@ export const stackedProject: ProjectCaseStudy = {
     'An interactive grid puzzle solver visualizing DFS, BFS, A*, and uniform-cost search.',
   role: 'Personal project',
   description: [
-    'Stacked visualizes how different search algorithms — DFS, BFS, A*, and uniform-cost search — explore a grid to find a path, with animated path visualization built on predictable state transitions.',
+    'Stacked visualizes how different search algorithms - DFS, BFS, A*, and uniform-cost search - explore a grid to find a path, with animated path visualization built on predictable state transitions.',
     'The interaction model stays responsive across screen sizes, turning an algorithms concept into something you can watch unfold step by step.',
   ],
   stack: ['React.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS', 'Motion'],

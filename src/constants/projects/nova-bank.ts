@@ -7,7 +7,7 @@ export const novaBankProject: ProjectCaseStudy = {
     'A banking dashboard demonstrating classic software design patterns, built for a Software Engineering course.',
   role: 'Team project',
   description: [
-    'NovaBank is a banking dashboard built for a Software Engineering course, focused on applying classic design patterns — including Singleton and Strategy — within a real-world frontend architecture.',
+    'NovaBank is a banking dashboard built for a Software Engineering course, focused on applying classic design patterns - including Singleton and Strategy - within a real-world frontend architecture.',
     'The app cleanly separates UI, business-logic abstraction, and API communication, talking to a dedicated ASP.NET backend and a companion Flutter mobile app built by teammates.',
   ],
   stack: [
@@ -21,7 +21,7 @@ export const novaBankProject: ProjectCaseStudy = {
   highlights: [
     'Applied the Strategy pattern for interchangeable business logic and Singleton for shared, single-instance services.',
     'Separated UI, business-logic abstraction, and API communication into distinct layers for a maintainable, pattern-driven architecture.',
-    'Built two role-gated permission tiers — manager and admin — with managers restricted from creating other managers.',
+    'Built two role-gated permission tiers - manager and admin - with managers restricted from creating other managers.',
   ],
   links: [
     {

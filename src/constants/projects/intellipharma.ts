@@ -10,8 +10,8 @@ export const intellipharmaProject: ProjectCaseStudy = {
   description: [
     "Warehouse distribution for pharmacies loses money to three things: randomized rep and distributor routes wasting fuel and time, months of retraining every time an experienced rep leaves and takes their pharmacy relationships with them, and zero real-time visibility into where a rep actually is or what they've sold. IntelliPharma is my graduation project, built by a team of five around a reinforcement-learning route planner to close that gap.",
     'I owned the frontend end to end: a strict Feature-Sliced Design codebase spanning 1,100+ source files, 21 domain entities, and 67 route-level pages.',
-    'The frontend rests on a two-layer data architecture — a typed Axios client with normalized error handling, and reusable TanStack Query hooks for Suspense reads, infinite lists, and mutations. Backend-authoritative role-based access control protects routes, navigation, and UI down to individual capabilities, and a companion Flutter app and Laravel backend round out the system.',
-    "The planner backs that up with real numbers: it cuts driving distance by roughly 42–54% against naive route ordering, and in a full production-pipeline test it completed 97 of 97 planning requests with no crashes or timeouts at a 5.3-second median response time. Getting there took more than model accuracy — an early version's ride-completion rate dropped from 0.90 to 0.74 under aggressive reward feedback, which is why the team built a replay-and-shadow-validation gate that can reject a bad model update outright rather than trust everything it learns.",
+    'The frontend rests on a two-layer data architecture - a typed Axios client with normalized error handling, and reusable TanStack Query hooks for Suspense reads, infinite lists, and mutations. Backend-authoritative role-based access control protects routes, navigation, and UI down to individual capabilities, and a companion Flutter app and Laravel backend round out the system.',
+    "The planner backs that up with real numbers: it cuts driving distance by roughly 42–54% against naive route ordering, and in a full production-pipeline test it completed 97 of 97 planning requests with no crashes or timeouts at a 5.3-second median response time. Getting there took more than model accuracy - an early version's ride-completion rate dropped from 0.90 to 0.74 under aggressive reward feedback, which is why the team built a replay-and-shadow-validation gate that can reject a bad model update outright rather than trust everything it learns.",
     'The finished project was graded 94/100.',
   ],
   stack: [
@@ -38,10 +38,10 @@ export const intellipharmaProject: ProjectCaseStudy = {
   highlights: [
     'Architected a strict Feature-Sliced Design codebase across app, pages, features, entities, shared, and widgets layers, keeping dependency direction explicit across 1,100+ source files.',
     'Designed a two-layer data architecture: a typed Axios apiClient with interceptor-normalized responses, plus reusable TanStack Query hooks for Suspense reads, infinite lists, and CRUD mutations.',
-    'Established backend-authoritative RBAC from session state through protected routes, permission-aware navigation, and capability-driven UI that fails closed when access is missing — using memoized, Set-backed permission checks for O(1) lookups.',
+    'Established backend-authoritative RBAC from session state through protected routes, permission-aware navigation, and capability-driven UI that fails closed when access is missing - using memoized, Set-backed permission checks for O(1) lookups.',
     'Integrated real-time field-team tracking over authenticated WebSocket channels, reconciling REST snapshots with live location events in a normalized store.',
-    'Configured Firebase Cloud Messaging (FCM) push notifications — device-token fingerprinting and service-worker-based delivery — synced with app state.',
-    'Engineered cross-tab authentication as a concurrency system — serialized token refreshes with Web Locks and propagated session state across tabs via BroadcastChannel.',
+    'Configured Firebase Cloud Messaging (FCM) push notifications - device-token fingerprinting and service-worker-based delivery - synced with app state.',
+    'Engineered cross-tab authentication as a concurrency system - serialized token refreshes with Web Locks and propagated session state across tabs via BroadcastChannel.',
   ],
   links: [
     {

@@ -6,7 +6,7 @@ export const FALLBACK_ERROR_MESSAGE =
   'Something went wrong sending that. Please try again, or email me directly using the link beside this form.';
 
 const MISSING_ACCESS_KEY_MESSAGE =
-  "The contact form isn't set up yet — please email me directly instead.";
+  "The contact form isn't set up yet - please email me directly instead.";
 
 type Web3FormsResponse = {
   success?: boolean;

@@ -21,7 +21,7 @@ import {
 import { RESUME_OG_IMAGE, SITE_NAME } from '@/constants/siteConfig';
 
 const PAGE_DESCRIPTION =
-  'Resume of Mohammad Omar — frontend engineer specializing in React and TypeScript architecture for complex, data-intensive products.';
+  'Resume of Mohammad Omar - frontend engineer specializing in React and TypeScript architecture for complex, data-intensive products.';
 
 export const metadata: Metadata = {
   title: 'Resume',

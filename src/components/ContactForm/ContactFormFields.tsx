@@ -84,7 +84,7 @@ export function ContactFormFields() {
 
         {submitState.kind === 'success' ? (
           <p className="text-success text-sm" role="status">
-            Thanks — your message is on its way. I&apos;ll get back to you soon.
+            Thanks - your message is on its way. I&apos;ll get back to you soon.
           </p>
         ) : null}
 

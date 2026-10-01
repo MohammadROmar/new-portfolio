@@ -6,7 +6,7 @@ export const ouzounProject: ProjectCaseStudy = {
   tagline:
     'An administration platform for dental clinics, connecting web, backend, and two mobile apps.',
   role: 'Team project',
-  team: 'Team of 5 — 2 backend, 2 mobile, and me on the admin dashboard frontend.',
+  team: 'Team of 5 - 2 backend, 2 mobile, and me on the admin dashboard frontend.',
   description: [
     'Ouzoun is an administration platform for dental operations, tools, implants, and assistants, built by a five-person team with an ASP.NET backend and two companion Flutter mobile applications for connected clinic workflows. I owned the admin dashboard frontend.',
     'The platform includes real-time notifications, role-based administration, and interactive analytics dashboards that give clinic staff visibility into day-to-day operations.',
